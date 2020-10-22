@@ -233,22 +233,19 @@
 
                         <div class="bor8 m-b-20 how-pos4-parent">
                             <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="name"
-                                placeholder="Name" required>
+                                placeholder="Name">
                         </div>
 
                         <div class="bor8 m-b-20 how-pos4-parent">
                             <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="email"
-                                placeholder="Email Address" required>
+                                placeholder="Email Address">
                         </div>
 
                         <div class="bor8 m-b-20 how-pos4-parent">
                             <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="contactno"
-                                id="contactno" placeholder="Contact No" pattern="[0-9]{8}" required>
+                                id="contactno" placeholder="Contact No" pattern="[0-9]{8}">
                         </div>
 
-                        <input type="submit"
-                            class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"
-                            value="Register">
                         </input>
                         <input type="submit"
                             class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"
@@ -258,22 +255,6 @@
 
                     <!-- Script for validateMyForm -->
                     <script type="text/javascript">
-                        function validateMyForm() {
-                            var xname = document.forms["adminaccountForm"]["name"].value;
-                            var xemail = document.forms["adminaccountForm"]["email"].value;
-                            var xcontactno = document.forms["adminaccountForm"]["contactno"].value;
-
-                            if (xname == "") {
-                                alert("Please enter your name");
-                                return false;
-                            }
-
-                            if (xemail == "") {
-                                alert("Please enter email.");
-                                return false;
-                            }
-                        }
-
                         function search(){
                             var xname = document.forms["adminaccountForm"]["name"].value;
                             var xemail = document.forms["adminaccountForm"]["email"].value;
