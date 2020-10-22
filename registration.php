@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><Registration class="php"></Registration></title>
+    <title><Registration class="php">Registration</title>
 </head>
 <body>
 <?php
