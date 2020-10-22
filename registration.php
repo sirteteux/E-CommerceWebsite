@@ -235,16 +235,28 @@ $creditcard = mysqli_real_escape_string($link, $_REQUEST['creditcard']);
 $sql = "insert into User values(null, '$name','$email', '$password', '$contactno', 'admin', '$creditcard')";
 
 if(mysqli_query($link, $sql)){
-    echo "<h4 class="mtext-105 cl2 txt-center p-b-30">Records added successfully.</h4>";
+    echo "<h4>Records added successfully.</h4>";
 } else{
-    echo "<h4 class="mtext-105 cl2 txt-center p-b-30">ERROR: Could not able to execute $sql. </h4>" . mysqli_error($link);
+    echo "<h4>ERROR: Could not able to execute $sql. </h4>" . mysqli_error($link);
 }
  
 mysqli_close($link);
 ?>
 	<br>
-    <p><a href="http://ceto.murdoch.edu.au/~34095187/assignment2/index.html">Direct link to home</a></p>
-    <p><a href="http://ceto.murdoch.edu.au/~34095187/assignment2/login.html">login</a></p>
+<section class="bg0 p-t-104 p-b-500">
+            <div class="flex-w flex-tr">
+                <div class="size-210 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
+    <input type="submit" onclick="location.href='http://ceto.murdoch.edu.au/~34095187/assignment2/login.php'"
+        class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" value="Login">
+    </input>
+    <br>
+    <input  type="submit" onclick="location.href='http://ceto.murdoch.edu.au/~34095187/assignment2/index.php'"
+        class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"
+        value="Back To Home">
+    </input>
+	</div>
+      </div>
+</section>
 
     <!-- Back to top -->
 <div class="btn-back-to-top" id="myBtn">

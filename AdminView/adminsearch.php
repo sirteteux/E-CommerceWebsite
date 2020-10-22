@@ -51,14 +51,6 @@
                         <a href="#" class="flex-c-m trans-04 p-lr-25">
                             Donate For A Cause
                         </a>
-
-                        <a href="login.html" class="flex-c-m trans-04 p-lr-25">
-                            Login
-                        </a>
-
-                        <a href="register.html" class="flex-c-m trans-04 p-lr-25">
-                            Register
-                        </a>
                     </div>
                 </div>
             </div>
@@ -67,7 +59,7 @@
                 <nav class="limiter-menu-desktop container">
 
                     <!-- Logo desktop -->
-                    <a href="#" class="logo">
+                    <a href="AdminHome.html" class="logo">
                         <img src="images/icons/logo-01.jpg" alt="IMG-LOGO">
                     </a>
 
@@ -75,27 +67,23 @@
                     <div class="menu-desktop">
                         <ul class="main-menu">
                             <li>
-                                <a href="index.html">Home</a>
+                                <a href="AdminHome.html">Home</a>
                             </li>
 
                             <li>
-                                <a href="product.html">Shop</a>
-                            </li>
-
-                            <li class="label1" data-label1="hot">
-                                <a href="shoping-cart.html">Features</a>
+                                <a href="AdminProduct.html">Shop</a>
                             </li>
 
                             <li>
-                                <a href="blog.html">Blog</a>
+                                <a href="AdminBlog.html">Blog</a>
                             </li>
 
                             <li>
-                                <a href="about.html">About</a>
+                                <a href="AdminAbout.html">About</a>
                             </li>
 
-                            <li class="active-menu">
-                                <a href="contact.html">Contact</a>
+                            <li>
+                                <a href="AdminAccount.html">Accounts</a>
                             </li>
                         </ul>
                     </div>
@@ -173,7 +161,7 @@
                         </a>
 
                         <a href="AdminAccount.html" class="flex-c-m p-lr-10 trans-04">
-                            My Account
+                            Account
                         </a>
                     </div>
                 </li>
