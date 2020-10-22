@@ -231,8 +231,13 @@ $email = mysqli_real_escape_string($link, $_REQUEST['email']);
 $password = mysqli_real_escape_string($link, $_REQUEST['password']);
 $contactno = mysqli_real_escape_string($link, $_REQUEST['contactno']);
 $creditcard = mysqli_real_escape_string($link, $_REQUEST['creditcard']);
+$salt = uniqid('', true);
+$algo = '6';
+$cryptSalt = '$' .$algo.$salt;
 
-$sql = "insert into User values(null, '$name','$email', '$password', '$contactno', 'admin', '$creditcard')";
+$hashedPassword = crypt($password, $cryptSalt);
+
+$sql = "insert into User values(null, '$name','$email', '$hashedPassword', '$contactno', 'admin', '$creditcard')";
 
 if(mysqli_query($link, $sql)){
     echo "<h4>Records added successfully.</h4>";
