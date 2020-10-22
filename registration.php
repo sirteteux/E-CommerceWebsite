@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><Registration class="php"></Registration></title>
+    <title>Registration</title>
 </head>
 <body>
 <?php
@@ -18,8 +18,7 @@ $password = mysqli_real_escape_string($link, $_REQUEST['password']);
 $contactno = mysqli_real_escape_string($link, $_REQUEST['contactno']);
 $creditcard = mysqli_real_escape_string($link, $_REQUEST['creditcard']);
 
-$sql = "INSERT INTO User(Name, Email, Password, ContactNo, CcDetails) 
-VALUES ('$name','$email', '$password', '$contactno', '$creditcard')";
+$sql = "insert into User values(null, '$name','$email', '$password', '$contactno', 'admin', '$creditcard')";
 
 if(mysqli_query($link, $sql)){
     echo "<p>Records added successfully.</p>";

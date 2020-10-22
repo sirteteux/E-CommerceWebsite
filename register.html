@@ -359,9 +359,9 @@
                                 id="creditcard" placeholder="Credit Card" pattern="[0-9]{16}">
                         </div>
 
-                        <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+                        <input type="submit" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
                             Register
-                        </button>
+                    </input>
                     </form>
 
                     <!-- Script for validateMyForm -->
@@ -384,11 +384,6 @@
 
                             if (xpassword == "") {
                                 alert("Please enter password.");
-                                return false;
-                            }
-
-                            if (xcontactno == "") {
-                                alert("Please enter unit contact no.");
                                 return false;
                             }
                         }
