@@ -12,16 +12,8 @@ if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
  
-$name = mysqli_real_escape_string($link, $_REQUEST['name']);
 $email = mysqli_real_escape_string($link, $_REQUEST['email']);
 $password = mysqli_real_escape_string($link, $_REQUEST['password']);
-$contactno = mysqli_real_escape_string($link, $_REQUEST['contactno']);
-$creditcard = mysqli_real_escape_string($link, $_REQUEST['creditcard']);
-$salt = uniqid('', true);
-$algo = '6';
-$cryptSalt = '$' .$algo.$salt;
-
-$hashedPassword = crypt($password, $cryptSalt);
 
 $sql = "select password from User where Email = '{$email}'";
 
