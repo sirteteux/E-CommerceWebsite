@@ -233,7 +233,7 @@ $contactno = mysqli_real_escape_string($link, $_REQUEST['contactno']);
 $creditcard = mysqli_real_escape_string($link, $_REQUEST['creditcard']);
 $salt = uniqid('', true);
 $algo = '6';
-$cryptSalt = '$' .$algo.$salt;
+$cryptSalt = '$' .$algo. '$'.$salt;
 
 $hashedPassword = crypt($password, $cryptSalt);
 

@@ -4,6 +4,8 @@
     <title>Login</title>
 </head>
 <body>
+<?php error_reporting(-1); ?>
+<?php ini_set('display_errors', true); ?>
 <?php
 $link = mysqli_connect("localhost", "X34110222", "X34110222", "X34110222");
  
@@ -15,12 +17,14 @@ if($link === false){
 $email = mysqli_real_escape_string($link, $_REQUEST['email']);
 $password = mysqli_real_escape_string($link, $_REQUEST['password']);
 
-$sql = "select password from User where Email = '{$email}'";
+$sql = "select Password from User where Email = '{$email}'";
 
-if(crypt($password, mysqli_query($link, $sql) == mysqli_query($link, $sql)){
+$result = mysqli_query($link, $sql) or trigger_error("Query Failed! SQL: $sql - Error: ".mysqli_error($link), E_USER_ERROR);
+
+if(crypt($password, $result) == $result){
     echo "<p>Login success</p>";
 } else{
-    echo "<p>ERROR: Could not able to execute $sql. </p>" . mysqli_error($link);
+    echo "<p>ERROR: Could not able to execute, $result</p>";
 }
  
 mysqli_close($link);
