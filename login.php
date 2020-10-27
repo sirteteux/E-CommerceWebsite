@@ -21,10 +21,12 @@ $sql = "select Password from User where Email = '{$email}'";
 
 $result = mysqli_query($link, $sql) or trigger_error("Query Failed! SQL: $sql - Error: ".mysqli_error($link), E_USER_ERROR);
 
-if(crypt($password, $result) == $result){
+$hashedPassword = $result->fetch_array()['Password'];
+
+if(crypt($password, $hashedPassword) == $hashedPassword){
     echo "<p>Login success</p>";
 } else{
-    echo "<p>ERROR: Could not able to execute, $result</p>";
+    echo "<p>ERROR: Could not able to execute, $result, " . gettype($hashedPassword) ."</p>";
 }
  
 mysqli_close($link);
