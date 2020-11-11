@@ -34,6 +34,7 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
 </head>
 <body class="animsition">
 	
@@ -192,7 +193,7 @@
 					</li>
 
 					<li class="p-b-13">
-						<a href="AdminAccount.html" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="AdminAccount.html" class="stext-102 cl2 hov-cl1 trans-04" id="fillemail">
 							My Account
 						</a>
 					</li>
@@ -215,7 +216,40 @@
 						</a>
 					</li>
 				</ul>
+				<script>
+					$(function(){
+						checkCookie();
+					});
 
+					function getCookie(cname) {
+						var name = cname + "=";
+						var decodedCookie = decodeURIComponent(document.cookie);
+						var ca = decodedCookie.split(';');
+						console.log(ca);
+						for(var i = 0; i < ca.length; i++) {
+							var c = ca[i];
+							while (c.charAt(0) == ' ') {
+								c = c.substring(1);
+							}
+							if (c.indexOf(name) == 0) {
+								var c = c.substring(name.length, c.length);
+								return JSON.parse(c);
+							}
+						}
+						return "";
+					}
+
+					function checkCookie() {
+						var userDetails= getCookie("userDetails");
+						if (userDetails != "") {
+							console.log(userDetails.user);
+							$("#fillemail").text(userDetails.user);
+						} 
+						else{
+							document.getElementById("welcome").innerHTML = "Welcome to My Online Shop";
+						}
+					}
+				</script>
 				<div class="sidebar-gallery w-full p-tb-30">
 					<span class="mtext-101 cl5">
 						@ WXABrand

@@ -237,7 +237,7 @@ $cryptSalt = '$' .$algo. '$'.$salt;
 
 $hashedPassword = crypt($password, $cryptSalt);
 
-$sql = "insert into User values(null, '$name','$email', '$hashedPassword', '$contactno', 'admin', '$creditcard')";
+$sql = "insert into User values(null, '$name','$email', '$hashedPassword', '$contactno', 'member', '$creditcard')";
 
 if(mysqli_query($link, $sql)){
     echo "<h4>Records added successfully.</h4>";
