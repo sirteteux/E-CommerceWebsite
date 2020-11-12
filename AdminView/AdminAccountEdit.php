@@ -1,8 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Database (Admin Only)</title>
-        <meta charset="UTF-8">
+<head>
+	<title>Admin User Priviledges</title>
+
+<?php include('php_code.php'); ?>
+
+<?php 
+	if (isset($_GET['edit'])) {
+		$id = $_GET['edit'];
+		$update = true;
+		$record = mysqli_query($db, "SELECT * FROM User WHERE id=$id");
+
+		if (count($record) == 1 ) {
+			$n = mysqli_fetch_array($record);
+			$name = $n['Name'];
+			$email = $n['Email'];
+			$contact = $n['Contact'];
+			$usertype = $n['UserType'];
+		}
+	}
+?>
+
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="images/icons/favicon.png" />
@@ -27,13 +46,14 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <!--===============================================================================================-->
-    </head>
+</head>
 
 <body class="animsition">
 
- <!-- Header -->
- <header class="header-v4">
+<!-- Header -->
+    <header class="header-v4">
         <!-- Header desktop -->
         <div class="container-menu-desktop">
             <!-- Topbar -->
@@ -51,15 +71,23 @@
                         <a href="#" class="flex-c-m trans-04 p-lr-25">
                             Donate For A Cause
                         </a>
+
+			<a href="AdminAccountEdit.html" class="flex-c-m trans-04 p-lr-25">
+                            User Database
+                        </a>
+
+                        <a href="AdminProductEdit.html" class="flex-c-m trans-04 p-lr-25">
+                            Product Database
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <div class="wrap-menu-desktop how-shadow1">
+<div class="wrap-menu-desktop how-shadow1">
                 <nav class="limiter-menu-desktop container">
 
                     <!-- Logo desktop -->
-                    <a href="AdminHome.html" class="logo">
+                    <a href="#" class="logo">
                         <img src="images/icons/logo-01.jpg" alt="IMG-LOGO">
                     </a>
 
@@ -74,6 +102,10 @@
                                 <a href="AdminProduct.html">Shop</a>
                             </li>
 
+                            <li class="label1" data-label1="hot">
+                                <a href="shoping-cart.html">Features</a>
+                            </li>
+
                             <li>
                                 <a href="AdminBlog.html">Blog</a>
                             </li>
@@ -82,8 +114,8 @@
                                 <a href="AdminAbout.html">About</a>
                             </li>
 
-                            <li>
-                                <a href="AdminAccount.html">Accounts</a>
+                            <li class="active-menu">
+                                <a href="contact.html">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -112,7 +144,7 @@
         <div class="wrap-header-mobile">
             <!-- Logo moblie -->
             <div class="logo-mobile">
-                <a href="index.html"><img src="images/icons/logo-01.jpg" alt="IMG-LOGO"></a>
+                <a href="AdminHome.html"><img src="images/icons/logo-01.jpg" alt="IMG-LOGO"></a>
             </div>
 
             <!-- Icon header -->
@@ -160,8 +192,12 @@
                             Donate For A Cause
                         </a>
 
-                        <a href="AdminAccount.html" class="flex-c-m p-lr-10 trans-04">
-                            Account
+			<a href="AdminAccountEdit.html" class="flex-c-m trans-04 p-lr-25">
+                            User Database
+                        </a>
+
+                        <a href="AdminProductEdit.html" class="flex-c-m trans-04 p-lr-25">
+                            Product Database
                         </a>
                     </div>
                 </li>
@@ -205,71 +241,201 @@
             </div>
         </div>
     </header>
-<br><br>
 
-    <!-- Database Content -->
-<?php
-$con=mysqli_connect("localhost","X34110222","X34110222","X34110222");
+<!-- Content page -->
+    <section class="bg0 p-t-100 p-b-2000">
+            <div class="flex-w flex-tr">
+                <div class="size-210 bor15 p-lr-100 p-t-55 p-b-70 p-lr-50-lg w-full-md">
 
-// Check connection
-if (mysqli_connect_errno())
-{
-echo "Failed to connect to MySQL: " . mysqli_connect_error();}
+		<h1> Admin User Database </h1>
+	</div>
+    </div>
+</section>
 
-$name = mysqli_real_escape_string($con, $_REQUEST['name']);
-$email = mysqli_real_escape_string($con, $_REQUEST['email']);
-$contactno = mysqli_real_escape_string($con, $_REQUEST['contactno']);
+<?php if (isset($_SESSION['message'])): ?>
+	<div class="msg">
+		<?php 
+			echo $_SESSION['message']; 
+			unset($_SESSION['message']);
+		?>
+	</div>
+<?php endif ?>
 
-$query = "";
+<?php $results = mysqli_query($db, "SELECT * FROM User"); ?>
 
-if (!empty($name)){
-  $query = "select * from User where Name = '{$name}'";
-}
-else if (!empty($email)){
-  $query = "select * from User where Email = '{$email}'";
-}
-else if (!empty($contactno)){
-  $query = "select * from User where Contact = '{$contactno}'";
-}
+<table>
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Contact</th>
+			<th>User Type</th>
+			<th colspan="2">Action</th>
+		</tr>
+	</thead>
+	
+	<?php while ($row = mysqli_fetch_array($results)) { ?>
+		<tr>
+			<td><?php echo $row['id']; ?></td>
+			<td><?php echo $row['Name']; ?></td>
+			<td><?php echo $row['Email']; ?></td>
+			<td><?php echo $row['Contact']; ?></td>
+			<td><?php echo $row['UserType']; ?></td>
 
-$result = mysqli_query($con, $query);
-echo "<table border='1'>
-<tr>
-<th>User ID</th>
-<th>Name</th>
-<th>Email</th>
-<th>Password</th>
-<th>Contact</th>
-<th>UserType</th>
-<th>CcDetails</th>
-</tr>";
+			<td>
+				<a href="AdminAccountEdit.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a>
+			</td>
+			<td>
+				<a href="php_code.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a>
+			</td>
+		</tr>
+	<?php } ?>
+</table>
 
-while($row = mysqli_fetch_array($result))
-{
-echo "<tr>";
-echo "<td>" . $row['id'] . "</td>";
-echo "<td>" . $row['Name'] . "</td>";
-echo "<td>" . $row['Email'] . "</td>";
-echo "<td>" . $row['Password'] . "</td>";
-echo "<td>" . $row['Contact'] . "</td>";
-echo "<td>" . $row['UserType'] . "</td>";
-echo "<td>" . $row['CcDetails'] . "</td>";
-?>
+	<form method="post" action="php_code.php" >
 
-<td>
-<a href="AdminAccountEdit.php?id=<?php echo $row["id"];
-?>
- 
-<?php
-echo "</tr>";
-}
-echo "</table>";
+		<input type="hidden" name="id" value="<?php echo $id; ?>">
 
-mysqli_close($con);
-?>
+		<div class="input-group">
+			<label>Name</label>
+			<input type="text" name="name" value="<?php echo $name; ?>">
+		</div>
+		<div class="input-group">
+			<label>Email</label>
+			<input type="text" name="email" value="<?php echo $email; ?>">
+		</div>
+		<div class="input-group">
+			<label>Contact</label>
+			<input type="text" name="contact" value="<?php echo $contact; ?>">
+		</div>
 
-<!-- Back to top -->
-<div class="btn-back-to-top" id="myBtn">
+		<div class="input-group">
+			<label>User Type</label>
+			<input type="text" name="usertype" value="<?php echo $usertype; ?>">
+		</div>
+
+		<div class="input-group">
+			<?php if ($update == true): ?>
+	<button class="btn" type="submit" name="update" style="background: #556B2F;" >update</button>
+<?php endif ?>
+
+	  </div>
+	</form>
+      
+<!-- Footer -->
+    <footer class="bg3 p-t-75 p-b-32">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3 p-b-50">
+                    <h4 class="stext-301 cl0 p-b-30">
+                        Help
+                    </h4>
+
+                    <ul>
+                        <li class="p-b-10">
+                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                                Track Order
+                            </a>
+                        </li>
+
+                        <li class="p-b-10">
+                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                                Returns
+                            </a>
+                        </li>
+
+                        <li class="p-b-10">
+                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                                Shipping
+                            </a>
+                        </li>
+
+                        <li class="p-b-10">
+                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                                FAQs
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 p-b-50">
+                    <h4 class="stext-301 cl0 p-b-30">
+                        GET IN TOUCH
+                    </h4>
+
+                    <p class="stext-107 cl7 size-201">
+                        Any questions? Let us know in person at <br>
+                        Geylang St 22, #01-01, Singapore 512345 <br>
+                        Call us on (+65)6288 0000<br>
+                        Email us @ WXABrand@gmail.com
+                    </p>
+
+                    <div class="p-t-27">
+                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+
+                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+
+                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                            <i class="fa fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 p-b-50">
+                    <h4 class="stext-301 cl0 p-b-30">
+                        Newsletter
+                    </h4>
+
+                    <form>
+                        <div class="wrap-input1 w-full p-b-4">
+                            <input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email"
+                                placeholder="email@example.com">
+                            <div class="focus-input1 trans-04"></div>
+                        </div>
+
+                        <div class="p-t-18">
+                            <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+                                Subscribe
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="p-t-40">
+                <div class="flex-c-m flex-w p-b-18">
+                    <a href="#" class="m-all-1">
+                        <img src="images/icons/icon-pay-01.png" alt="ICON-PAY">
+                    </a>
+
+                    <a href="#" class="m-all-1">
+                        <img src="images/icons/icon-pay-02.png" alt="ICON-PAY">
+                    </a>
+
+                    <a href="#" class="m-all-1">
+                        <img src="images/icons/icon-pay-03.png" alt="ICON-PAY">
+                    </a>
+
+                    <a href="#" class="m-all-1">
+                        <img src="images/icons/icon-pay-04.png" alt="ICON-PAY">
+                    </a>
+
+                    <a href="#" class="m-all-1">
+                        <img src="images/icons/icon-pay-05.png" alt="ICON-PAY">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Back to top -->
+    <div class="btn-back-to-top" id="myBtn">
         <span class="symbol-btn-back-to-top">
             <i class="zmdi zmdi-chevron-up"></i>
         </span>
@@ -318,4 +484,5 @@ mysqli_close($con);
     <script src="js/main.js"></script>
 
 </body>
+
 </html>
