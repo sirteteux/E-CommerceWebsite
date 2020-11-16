@@ -218,6 +218,10 @@ $mentwilldesc = "";
 $hilmadesc = "";
 $toshiba1desc ="";
 
+//Picture Variables
+$mentwillpic ="";
+$hilmapic ="";
+
 //Database connection [WeiXiong's Database]
 $conn = mysqli_connect("localhost", "X34110222", "X34110222", "X34110222");
 
@@ -440,17 +444,23 @@ $demimotherPriceSql = 'select price from Products where serialNumber = "88"';
 $wonderlandPriceSql = 'select price from Products where serialNumber = "89"';
 $ombrePriceSql = 'select price from Products where serialNumber = "90"';
 
-//Product picture SQL Queries
-//washing machine
+//Product Description SQL Queries
 $mentwillDescSql = 'select description from Products where serialNumber = "55"';
 $hilmaDescSql = 'select description from Products where serialNumber = "68"';
 $toshiba1DescSql = 'select description from Products where serialNumber = "1"';
 
+//Product picture SQL Queries
+$mentwillPicSql = 'select pictures from Products where serialNumber = "55"';
+$hilmaPicSql = 'select pictures from Products where serialNumber = "68"';
+
 //Database Retrieved from queries [Description]
-//mens
 $mentwillDesc = mysqli_query($conn, $mentwillDescSql) or trigger_error("Query Failed! SQL: $mentwillDescSql - Error: ".mysqli_error($conn), E_USER_ERROR);
 $hilmaDesc = mysqli_query($conn, $hilmaDescSql ) or trigger_error("Query Failed! SQL: $hilmaDescSql - Error: ".mysqli_error($conn), E_USER_ERROR);
 $toshiba1Desc = mysqli_query($conn, $toshiba1DescSql ) or trigger_error("Query Failed! SQL: $toshiba1DescSql - Error: ".mysqli_error($conn), E_USER_ERROR);
+
+//Database Retrieved from queries [Picture]
+$mentwillPic = mysqli_query($conn, $mentwillPicSql) or trigger_error("Query Failed! SQL: $mentwillPicSql - Error: ".mysqli_error($conn), E_USER_ERROR);
+$hilmaPic = mysqli_query($conn, $hilmaPicSql ) or trigger_error("Query Failed! SQL: $hilmaPicSql - Error: ".mysqli_error($conn), E_USER_ERROR);
 
 //Database Retrieved from queries [Name]
 //washing machine
@@ -882,16 +892,23 @@ $wonderlandprice = $wonderlandPrice ->fetch_array()['price'];
 $ombreprice = $ombrePrice ->fetch_array()['price'];
 
 //Variables defined and $[variable] fetch specific row from 'X34110222' Database [Description]
-//men
 $mentwilldesc = $mentwillDesc ->fetch_array()['description'];
 $hilmadesc = $hilmaDesc ->fetch_array()['description'];
 $toshiba1desc = $toshiba1Desc ->fetch_array()['description'];
 
+//Variables defined and $[variable] fetch specific row from 'X34110222' Database [Pictures]
+$mentwillpic = $mentwillPic ->fetch_array()['pictures'];
+$hilmapic = $hilmaPic ->fetch_array()['pictures'];
+
 //After fetching, reply it to the specific element. [Description]
-//washing machines
 $reply->mentwillDesc = $mentwilldesc;
 $reply->hilmaDesc = $hilmadesc;
 $reply->toshiba1Desc = $toshiba1desc;
+
+//After fetching, reply it to the specific element. [Picture]
+$reply->mentwillPic = $mentwillpic;
+$reply->hilmaPic = $hilmapic ;
+
 
 //After fetching, reply it to the specific element. [Name]
 //washing machines

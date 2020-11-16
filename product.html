@@ -575,7 +575,7 @@
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/menshirt1.png" alt="IMG-PRODUCT">
+							<p id="mentwillPic"></p>
 
 							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
@@ -607,7 +607,7 @@
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/womendress2.png" alt="IMG-PRODUCT">
+							<p id="hilmaPic"></p>
 
 							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
@@ -666,6 +666,7 @@
 						</div>
 					</div>
 				</div>
+				<br /><br /><br />
 
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item soundbars">
 					<!-- Block2 -->
@@ -4122,6 +4123,8 @@
 		    document.getElementById("wonderlandPrice").innerHTML = resp.wonderlandPrice;
 		    document.getElementById("ombrePrice").innerHTML = resp.ombrePrice;
 
+		    document.getElementById('mentwillPic').innerHTML = '<img src="' + resp.mentwillPic +'" + height="220" width="100" />';
+		    document.getElementById('hilmaPic').innerHTML = '<img src="' + resp.hilmaPic +'" + height="270" width="100" />';
                 }
             }
 
