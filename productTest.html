@@ -3873,9 +3873,11 @@
             for(i = 0; i < arr.length; i++) {
                 out += '<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">' +
 						'<a href="url for specific product">' + 
-						'<div class="block2-txt flex-w flex-t p-t-14"' +
+						'<img src="' + arr[i].pictures + '" height="400" width="300"/>' +
+						'<div class="block2-txt flex-w flex-t p-t-14">' +
                         '<div class="prodCardText">' + arr[i].productName +
                         '</div>' +
+						'&nbsp&nbsp&nbsp&nbsp' +
                         '<div class="prodCardPrice"><spam class="curency">$</span><spam class="price">' + arr[i].price + '</span>' +
                         '</div>' +
 						'</div>' +
