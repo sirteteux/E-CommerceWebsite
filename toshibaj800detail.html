@@ -346,7 +346,7 @@
 							<div class="slick3 gallery-lb">
 								<div class="item-slick3" data-thumb="images/toshiba1.png">
 									<div class="wrap-pic-w pos-relative">
-										<img src="images/toshiba1.png" alt="IMG-PRODUCT">
+										<img id="prodImg" height="500" width= "500" alt="IMG-PRODUCT"/>
 
 										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/toshiba1.png">
 											<i class="fa fa-expand"></i>
@@ -361,11 +361,11 @@
 				<div class="col-md-6 col-lg-5 p-b-30">
 					<div class="p-r-50 p-t-5 p-lr-0-lg">
 						<h4 class="mtext-105 cl2 js-name-detail p-b-14">
-							<p id="toshiba1Name"></p>
+							<p id="prodName"></p>
 						</h4>
 
 						<span class="mtext-106 cl2">
-							<p id="toshiba1Price"></p>
+							<p id="prodPrice"></p>
 						</span>
 						
 						<!--  -->
@@ -459,7 +459,7 @@
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs" role="tablist">
 						<li class="nav-item p-b-10">
-							<a class="nav-link active" data-toggle="tab" href="#description" role="tab">Description</a>
+							<a class="nav-link active" data-toggle="tab" href="#description" id="prodDesc" role="tab">Description</a>
 						</li>
 					</ul>
 
@@ -861,25 +861,72 @@
 <!--=========================== Load Content For Product =======================================-->
     <script>
         $(function(){
-            loadContent();
+            checkCookie();
         });
 
-        function loadContent(){
+        function loadContent(prodID){
             var xmlhttp=new XMLHttpRequest();
             xmlhttp.onreadystatechange=function() {
                 if (this.readyState==4 && this.status==200) {
-                    resp = JSON.parse(this.responseText);;
-		    document.getElementById("toshiba1Name").innerHTML = resp.toshiba1Name;
-                    document.getElementById("toshiba1Price").innerHTML = resp.toshiba1Price;
-                    document.getElementById("toshiba1Desc").innerHTML = resp.toshiba1Desc;
+                    resp = JSON.parse(this.responseText);
+					console.log(resp.prodid);
+					console.log(resp[0].pictures);
+					document.getElementById("prodImg").src = resp[0].pictures;
+		    		document.getElementById("prodName").innerHTML = resp[0].productName;
+                    document.getElementById("prodPrice").innerHTML = resp[0].price;
+                    document.getElementById("prodDesc").innerHTML = resp[0].description;
                 }
             }
 
-            xmlhttp.open("POST", "product.php", true);
+            xmlhttp.open("POST", "getProduct.php", true);
             xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xmlhttp.send();
+            xmlhttp.send("productID=" + prodID);
         }
-</script>
+
+		function setCookie(inputEmail,UserType, prodID, exdays) {
+			var d = new Date();
+						
+			var cdomain = "ceto.murdoch.edu.au/~34110222/assignment2/assignment2";
+			var cvalue = JSON.stringify({user:inputEmail,userType:UserType,prodid:prodID,visitedOn:d.getTime(),domain:cdomain});
+			d.setTime(d.getTime() + (exdays*24*60*60*1000));
+			var expires = "expires=" + d.toGMTString();
+			//console.log("setting cookies");
+			document.cookie =  "userDetails=" + cvalue + ";" + expires + ";path=/";
+			//document.cookie =  "userDetails=" + cvalue + ";domain=" + cdomain + ";" + expires + ";path=/";
+		}
+
+		function getCookie(cname) {
+			var name = cname + "=";
+			var decodedCookie = decodeURIComponent(document.cookie);
+			var ca = decodedCookie.split(';');
+			console.log(ca);
+			for(var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(name) == 0) {
+					var c = c.substring(name.length, c.length);
+					return JSON.parse(c);
+				}
+			}
+			return "";
+		}
+
+		function checkCookie() {
+			var userDetails= getCookie("userDetails");
+			var domain=getCookie("domain");
+			if (userDetails != "") {
+				loadContent(userDetails.prodid);
+				console.log(userDetails.user);
+				console.log(userDetails.domain);
+			} 
+			else{
+				console.log("cookies not set");
+				console.log(domain);
+			}
+		}
+	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
 
