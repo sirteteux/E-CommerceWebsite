@@ -104,7 +104,7 @@
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							<i class="zmdi zmdi-search" id="search"></i>
+							<i class="zmdi zmdi-search"></i>
 						</div>
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
@@ -584,7 +584,7 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								<a href="brooksSRegent.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 									<p id="mentwillName"></p>
 								</a>
 
@@ -616,7 +616,7 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								<a href="hilmadetail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 									<p id="hilmaName"></p>
 								</a>
 
@@ -648,12 +648,13 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								<a href="toshibaj800detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 									<p id="toshiba1Name"></p>
 								</a>
 
 								<span class="stext-105 cl3">
-									<p id="toshiba1Price"></p>								</span>
+									<p id="toshiba1Price"></p>
+								</span>
 							</div>
 
 							<div class="block2-txt-child2 flex-r p-t-3">
@@ -3933,166 +3934,169 @@
             xmlhttp.onreadystatechange=function() {
                 if (this.readyState==4 && this.status==200) {
                     resp = JSON.parse(this.responseText);;
-					document.getElementById("toshiba1Name").innerHTML = resp.toshiba1Name;
-					document.getElementById("toshiba2Name").innerHTML = resp.toshiba2Name;
-					document.getElementById("toshiba3Name").innerHTML = resp.toshiba3Name;
-					document.getElementById("toshiba4Name").innerHTML = resp.toshiba4Name;
-					document.getElementById("toshiba5Name").innerHTML = resp.toshiba5Name;
-					document.getElementById("lg1Name").innerHTML = resp.lg1Name;
-					document.getElementById("lg2Name").innerHTML = resp.lg2Name;
-					document.getElementById("lg3Name").innerHTML = resp.lg3Name;
-					document.getElementById("lg4Name").innerHTML = resp.lg4Name;
-					document.getElementById("bosch1Name").innerHTML = resp.bosch1Name;
-					document.getElementById("bosch2Name").innerHTML = resp.bosch2Name;
-					document.getElementById("bosch3Name").innerHTML = resp.bosch3Name;
-					document.getElementById("panasonic1Name").innerHTML = resp.panasonic1Name;
-					document.getElementById("panasonic2Name").innerHTML = resp.panasonic2Name;
-					document.getElementById("samsungwm1Name").innerHTML = resp.samsungwm1Name;
-					document.getElementById("samsungwm2Name").innerHTML = resp.samsungwm2Name;
-					document.getElementById("samsungtv1Name").innerHTML = resp.samsungtv1Name;
-					document.getElementById("samsungtv2Name").innerHTML = resp.samsungtv2Name;
-					document.getElementById("sonytv1Name").innerHTML = resp.sonytv1Name;
-					document.getElementById("sonytv2Name").innerHTML = resp.sonytv2Name;
-					document.getElementById("lgtv1Name").innerHTML = resp.lgtv1Name;
-					document.getElementById("prismtv1Name").innerHTML = resp.prismtv1Name;
-					document.getElementById("prismtv2Name").innerHTML = resp.prismtv2Name;
-					document.getElementById("xiaomitv1Name").innerHTML = resp.xiaomitv1Name;
-					document.getElementById("xiaomitv2Name").innerHTML = resp.xiaomitv2Name;
-					document.getElementById("sharptv1Name").innerHTML = resp.sharptv1Name;
-					document.getElementById("samsungsp1Name").innerHTML = resp.samsungsp1Name;
-					document.getElementById("samsungsp2Name").innerHTML = resp.samsungsp2Name;
-					document.getElementById("samsungsp3Name").innerHTML = resp.samsungsp3Name;
-					document.getElementById("sonysp1Name").innerHTML = resp.sonysp1Name;
-					document.getElementById("sonysp2Name").innerHTML = resp.sonysp2Name;
-					document.getElementById("sonysp3Name").innerHTML = resp.sonysp3Name;
-					document.getElementById("jblsp1Name").innerHTML = resp.jblsp1Name;
-					document.getElementById("jblsp2Name").innerHTML = resp.jblsp2Name;
-					document.getElementById("dinosaurlegoName").innerHTML = resp.dinosaurlegoName;
-					document.getElementById("mariolegoName").innerHTML = resp.mariolegoName;
-					document.getElementById("bricklegoName").innerHTML = resp.bricklegoName;
-					document.getElementById("gameoflifeName").innerHTML = resp.gameoflifeName;
-					document.getElementById("monopolyName").innerHTML = resp.monopolyName;
-					document.getElementById("twisterName").innerHTML = resp.twisterName;
-					document.getElementById("jengaName").innerHTML = resp.jengaName;
-					document.getElementById("connect4Name").innerHTML = resp.connect4Name;
-					document.getElementById("einmilkName").innerHTML = resp.einmilkName;
-					document.getElementById("kendamilName").innerHTML = resp.kendamilName;
-					document.getElementById("nestleName").innerHTML = resp.nestleName;
-					document.getElementById("wyethName").innerHTML = resp.wyethName;
-					document.getElementById("frisolacName").innerHTML = resp.frisolacName;
-					document.getElementById("enfamilName").innerHTML = resp.enfamilName;
-					document.getElementById("babyyardName").innerHTML = resp.babyyardName;
-					document.getElementById("babytulaName").innerHTML = resp.babytulaName;
-					document.getElementById("doonalikiName").innerHTML = resp.doonalikiName;
-					document.getElementById("babyftgName").innerHTML = resp.babyftgName;
-					document.getElementById("doonas3Name").innerHTML = resp.doonas3Name;
-					document.getElementById("rockerdenimName").innerHTML = resp.rockerdenimName;
-					document.getElementById("jaiecarName").innerHTML = resp.jaiecarName;
-					document.getElementById("babybjornName").innerHTML = resp.babybjornName;
-					document.getElementById("mentwillName").innerHTML = resp.mentwillName;
-					document.getElementById("franklinspreadName").innerHTML = resp.franklinspreadName;
-					document.getElementById("franklinstripesName").innerHTML = resp.franklinstripesName;
-					document.getElementById("milanoroyalName").innerHTML = resp.milanoroyalName;
-					document.getElementById("madisonforwardName").innerHTML = resp.madisonforwardName;
-					document.getElementById("madisonbuttonName").innerHTML = resp.madisonbuttonName;
-					document.getElementById("stretchpoplinName").innerHTML = resp.stretchpoplinName;
-					document.getElementById("stretchginghamName").innerHTML = resp.stretchginghamName;
-					document.getElementById("brookscoolName").innerHTML = resp.brookscoolName;
-					document.getElementById("brooksflexmilanoName").innerHTML = resp.brooksflexmilanoName;
-					document.getElementById("brooksflexregentName").innerHTML = resp.brooksflexregentName;
-					document.getElementById("brooksflexmadisonName").innerHTML = resp.brooksflexmadisonName;
-					document.getElementById("hannesName").innerHTML = resp.hannesName;
-					document.getElementById("hilmaName").innerHTML = resp.hilmaName;
-					document.getElementById("lyssaName").innerHTML = resp.lyssaName;
-					document.getElementById("tarrynName").innerHTML = resp.tarrynName;
-					document.getElementById("caitlinName").innerHTML = resp.caitlinName;
-					document.getElementById("annisaName").innerHTML = resp.annisaName;
-					document.getElementById("rowenaName").innerHTML = resp.rowenaName;
-					document.getElementById("carterName").innerHTML = resp.carterName;
-					document.getElementById("daronaName").innerHTML = resp.daronaName;
-					document.getElementById("andreaName").innerHTML = resp.andreaName;
-					document.getElementById("bioncaName").innerHTML = resp.bioncaName;
-					document.getElementById("adynaName").innerHTML = resp.adynaName;
-					document.getElementById("tissot1Name").innerHTML = resp.tissot1Name;
-					document.getElementById("tissot2Name").innerHTML = resp.tissot2Name;
-					document.getElementById("tissot3Name").innerHTML = resp.tissot3Name;
-					document.getElementById("tissot4Name").innerHTML = resp.tissot4Name;
-					document.getElementById("tissot5Name").innerHTML = resp.tissot5Name;
-					document.getElementById("tissot6Name").innerHTML = resp.tissot6Name;
-					document.getElementById("bezelroseName").innerHTML = resp.bezelroseName;
-					document.getElementById("midicoralName").innerHTML = resp.midicoralName;
-					document.getElementById("blackroseName").innerHTML = resp.blackroseName;
-					document.getElementById("demimotherName").innerHTML = resp.demimotherName;
-					document.getElementById("wonderlandName").innerHTML = resp.wonderlandName;
-					document.getElementById("ombreName").innerHTML = resp.ombreName;
-					document.getElementById("toshiba1Price").innerHTML = resp.toshiba1Price;
-					document.getElementById("toshiba2Price").innerHTML = resp.toshiba2Price;
-					document.getElementById("toshiba3Price").innerHTML = resp.toshiba3Price;
-					document.getElementById("toshiba4Price").innerHTML = resp.toshiba4Price;
-					document.getElementById("toshiba5Price").innerHTML = resp.toshiba5Price;
-					document.getElementById("lg1Price").innerHTML = resp.lg1Price;
-					document.getElementById("lg2Price").innerHTML = resp.lg2Price;
-					document.getElementById("lg3Price").innerHTML = resp.lg3Price
-					document.getElementById("lg4Price").innerHTML = resp.lg4Price;
-					document.getElementById("bosch1Price").innerHTML = resp.bosch1Price;
-					document.getElementById("bosch2Price").innerHTML = resp.bosch2Price;
-					document.getElementById("bosch3Price").innerHTML = resp.bosch3Price;
-					document.getElementById("panasonic1Price").innerHTML = resp.panasonic1Price;
-					document.getElementById("panasonic2Price").innerHTML = resp.panasonic2Price;
-					document.getElementById("samsungwm1Price").innerHTML = resp.samsungwm1Price;
-					document.getElementById("samsungwm2Price").innerHTML = resp.samsungwm2Price;
-					document.getElementById("samsungtv1Price").innerHTML = resp.samsungtv1Price;
-					document.getElementById("samsungtv2Price").innerHTML = resp.samsungtv2Price;
-					document.getElementById("sonytv1Price").innerHTML = resp.sonytv1Price;
-					document.getElementById("sonytv2Price").innerHTML = resp.sonytv2Price;
-					document.getElementById("lgtv1Price").innerHTML = resp.lgtv1Price;
-					document.getElementById("prismtv1Price").innerHTML = resp.prismtv1Price;
-					document.getElementById("prismtv2Price").innerHTML = resp.prismtv2Price;
-					document.getElementById("xiaomitv1Price").innerHTML = resp.xiaomitv1Price;
-					document.getElementById("xiaomitv2Price").innerHTML = resp.xiaomitv2Price;
-					document.getElementById("sharptv1Price").innerHTML = resp.sharptv1Price;
-					document.getElementById("samsungsp1Price").innerHTML = resp.samsungsp1Price;
-					document.getElementById("samsungsp2Price").innerHTML = resp.samsungsp2Price;
-					document.getElementById("samsungsp3Price").innerHTML = resp.samsungsp3Price;
-					document.getElementById("sonysp1Price").innerHTML = resp.sonysp1Price;
-					document.getElementById("sonysp2Price").innerHTML = resp.sonysp2Price;
-					document.getElementById("sonysp3Price").innerHTML = resp.sonysp3Price;
-					document.getElementById("jblsp1Price").innerHTML = resp.jblsp1Price;
-					document.getElementById("jblsp2Price").innerHTML = resp.jblsp2Price;
-					document.getElementById("dinosaurlegoPrice").innerHTML = resp.dinosaurlegoPrice;
-					document.getElementById("mariolegoPrice").innerHTML = resp.mariolegoPrice;
-					document.getElementById("bricklegoPrice").innerHTML = resp.bricklegoPrice;
-					document.getElementById("gameoflifePrice").innerHTML = resp.gameoflifePrice;
-					document.getElementById("monopolyPrice").innerHTML = resp.monopolyPrice;
-					document.getElementById("twisterPrice").innerHTML = resp.twisterPrice;
-					document.getElementById("jengaPrice").innerHTML = resp.jengaPrice;
-					document.getElementById("connect4Price").innerHTML = resp.connect4Price;
-					document.getElementById("einmilkPrice").innerHTML = resp.einmilkPrice;
-					document.getElementById("kendamilPrice").innerHTML = resp.kendamilPrice;
-					document.getElementById("nestlePrice").innerHTML = resp.nestlePrice;
-					document.getElementById("wyethPrice").innerHTML = resp.wyethPrice;
-					document.getElementById("frisolacPrice").innerHTML = resp.frisolacPrice;
-					document.getElementById("enfamilPrice").innerHTML = resp.enfamilPrice;
-					document.getElementById("babyyardPrice").innerHTML = resp.babyyardPrice;
-					document.getElementById("babytulaPrice").innerHTML = resp.babytulaPrice;
-					document.getElementById("doonalikiPrice").innerHTML = resp.doonalikiPrice;
-					document.getElementById("babyftgPrice").innerHTML = resp.babyftgPrice;
-					document.getElementById("doonas3Price").innerHTML = resp.doonas3Price;
-					document.getElementById("rockerdenimPrice").innerHTML = resp.rockerdenimPrice;
-					document.getElementById("jaiecarPrice").innerHTML = resp.jaiecarPrice;
-					document.getElementById("babybjornPrice").innerHTML = resp.babybjornPrice;
-					document.getElementById("mentwillPrice").innerHTML = resp.mentwillPrice;
-					document.getElementById("franklinspreadPrice").innerHTML = resp.franklinspreadPrice;
-					document.getElementById("franklinstripesPrice").innerHTML = resp.franklinstripesPrice;
-					document.getElementById("milanoroyalPrice").innerHTML = resp.milanoroyalPrice;
-					document.getElementById("madisonforwardPrice").innerHTML = resp.madisonforwardPrice;
-					document.getElementById("madisonbuttonPrice").innerHTML = resp.madisonbuttonPrice;
-					document.getElementById("stretchpoplinPrice").innerHTML = resp.stretchpoplinPrice;
-					document.getElementById("stretchginghamPrice").innerHTML = resp.stretchginghamPrice;
-					document.getElementById("brookscoolPrice").innerHTML = resp.brookscoolPrice;
-					document.getElementById("brooksflexmilanoPrice").innerHTML = resp.brooksflexmilanoPrice;
-					document.getElementById("brooksflexregentPrice").innerHTML = resp.brooksflexregentPrice;
-					document.getElementById("brooksflexmadisonPrice").innerHTML = resp.brooksflexmadisonPrice;
+		    document.getElementById("toshiba1Name").innerHTML = resp.toshiba1Name;
+		    document.getElementById("toshiba2Name").innerHTML = resp.toshiba2Name;
+		    document.getElementById("toshiba3Name").innerHTML = resp.toshiba3Name;
+		    document.getElementById("toshiba4Name").innerHTML = resp.toshiba4Name;
+		    document.getElementById("toshiba5Name").innerHTML = resp.toshiba5Name;
+		    document.getElementById("lg1Name").innerHTML = resp.lg1Name;
+		    document.getElementById("lg2Name").innerHTML = resp.lg2Name;
+		    document.getElementById("lg3Name").innerHTML = resp.lg3Name;
+		    document.getElementById("lg4Name").innerHTML = resp.lg4Name;
+		    document.getElementById("bosch1Name").innerHTML = resp.bosch1Name;
+		    document.getElementById("bosch2Name").innerHTML = resp.bosch2Name;
+		    document.getElementById("bosch3Name").innerHTML = resp.bosch3Name;
+		    document.getElementById("panasonic1Name").innerHTML = resp.panasonic1Name;
+		    document.getElementById("panasonic2Name").innerHTML = resp.panasonic2Name;
+		    document.getElementById("samsungwm1Name").innerHTML = resp.samsungwm1Name;
+		    document.getElementById("samsungwm2Name").innerHTML = resp.samsungwm2Name;
+		    document.getElementById("samsungtv1Name").innerHTML = resp.samsungtv1Name;
+		    document.getElementById("samsungtv2Name").innerHTML = resp.samsungtv2Name;
+		    document.getElementById("sonytv1Name").innerHTML = resp.sonytv1Name;
+		    document.getElementById("sonytv2Name").innerHTML = resp.sonytv2Name;
+		    document.getElementById("lgtv1Name").innerHTML = resp.lgtv1Name;
+		    document.getElementById("prismtv1Name").innerHTML = resp.prismtv1Name;
+		    document.getElementById("prismtv2Name").innerHTML = resp.prismtv2Name;
+		    document.getElementById("xiaomitv1Name").innerHTML = resp.xiaomitv1Name;
+		    document.getElementById("xiaomitv2Name").innerHTML = resp.xiaomitv2Name;
+		    document.getElementById("sharptv1Name").innerHTML = resp.sharptv1Name;
+                    document.getElementById("samsungsp1Name").innerHTML = resp.samsungsp1Name;
+                    document.getElementById("samsungsp2Name").innerHTML = resp.samsungsp2Name;
+                    document.getElementById("samsungsp3Name").innerHTML = resp.samsungsp3Name;
+                    document.getElementById("sonysp1Name").innerHTML = resp.sonysp1Name;
+                    document.getElementById("sonysp2Name").innerHTML = resp.sonysp2Name;
+                    document.getElementById("sonysp3Name").innerHTML = resp.sonysp3Name;
+                    document.getElementById("jblsp1Name").innerHTML = resp.jblsp1Name;
+                    document.getElementById("jblsp2Name").innerHTML = resp.jblsp2Name;
+                    document.getElementById("dinosaurlegoName").innerHTML = resp.dinosaurlegoName;
+                    document.getElementById("mariolegoName").innerHTML = resp.mariolegoName;
+                    document.getElementById("bricklegoName").innerHTML = resp.bricklegoName;
+                    document.getElementById("gameoflifeName").innerHTML = resp.gameoflifeName;
+                    document.getElementById("monopolyName").innerHTML = resp.monopolyName;
+                    document.getElementById("twisterName").innerHTML = resp.twisterName;
+                    document.getElementById("jengaName").innerHTML = resp.jengaName;
+                    document.getElementById("connect4Name").innerHTML = resp.connect4Name;
+		    document.getElementById("einmilkName").innerHTML = resp.einmilkName;
+		    document.getElementById("kendamilName").innerHTML = resp.kendamilName;
+		    document.getElementById("nestleName").innerHTML = resp.nestleName;
+		    document.getElementById("wyethName").innerHTML = resp.wyethName;
+		    document.getElementById("frisolacName").innerHTML = resp.frisolacName;
+		    document.getElementById("enfamilName").innerHTML = resp.enfamilName;
+		    document.getElementById("babyyardName").innerHTML = resp.babyyardName;
+		    document.getElementById("babytulaName").innerHTML = resp.babytulaName;
+		    document.getElementById("doonalikiName").innerHTML = resp.doonalikiName;
+		    document.getElementById("babyftgName").innerHTML = resp.babyftgName;
+		    document.getElementById("doonas3Name").innerHTML = resp.doonas3Name;
+		    document.getElementById("rockerdenimName").innerHTML = resp.rockerdenimName;
+		    document.getElementById("jaiecarName").innerHTML = resp.jaiecarName;
+		    document.getElementById("babybjornName").innerHTML = resp.babybjornName;
+		    document.getElementById("mentwillName").innerHTML = resp.mentwillName;
+		    document.getElementById("franklinspreadName").innerHTML = resp.franklinspreadName;
+		    document.getElementById("franklinstripesName").innerHTML = resp.franklinstripesName;
+		    document.getElementById("milanoroyalName").innerHTML = resp.milanoroyalName;
+		    document.getElementById("madisonforwardName").innerHTML = resp.madisonforwardName;
+		    document.getElementById("madisonbuttonName").innerHTML = resp.madisonbuttonName;
+		    document.getElementById("stretchpoplinName").innerHTML = resp.stretchpoplinName;
+		    document.getElementById("stretchginghamName").innerHTML = resp.stretchginghamName;
+		    document.getElementById("brookscoolName").innerHTML = resp.brookscoolName;
+		    document.getElementById("brooksflexmilanoName").innerHTML = resp.brooksflexmilanoName;
+		    document.getElementById("brooksflexregentName").innerHTML = resp.brooksflexregentName;
+		    document.getElementById("brooksflexmadisonName").innerHTML = resp.brooksflexmadisonName;
+                    document.getElementById("hannesName").innerHTML = resp.hannesName;
+                    document.getElementById("hilmaName").innerHTML = resp.hilmaName;
+                    document.getElementById("lyssaName").innerHTML = resp.lyssaName;
+                    document.getElementById("tarrynName").innerHTML = resp.tarrynName;
+                    document.getElementById("caitlinName").innerHTML = resp.caitlinName;
+                    document.getElementById("annisaName").innerHTML = resp.annisaName;
+                    document.getElementById("rowenaName").innerHTML = resp.rowenaName;
+                    document.getElementById("carterName").innerHTML = resp.carterName;
+                    document.getElementById("daronaName").innerHTML = resp.daronaName;
+                    document.getElementById("andreaName").innerHTML = resp.andreaName;
+                    document.getElementById("bioncaName").innerHTML = resp.bioncaName;
+                    document.getElementById("adynaName").innerHTML = resp.adynaName;
+                    document.getElementById("tissot1Name").innerHTML = resp.tissot1Name;
+                    document.getElementById("tissot2Name").innerHTML = resp.tissot2Name;
+                    document.getElementById("tissot3Name").innerHTML = resp.tissot3Name;
+                    document.getElementById("tissot4Name").innerHTML = resp.tissot4Name;
+                    document.getElementById("tissot5Name").innerHTML = resp.tissot5Name;
+                    document.getElementById("tissot6Name").innerHTML = resp.tissot6Name;
+                    document.getElementById("bezelroseName").innerHTML = resp.bezelroseName;
+                    document.getElementById("midicoralName").innerHTML = resp.midicoralName;
+                    document.getElementById("blackroseName").innerHTML = resp.blackroseName;
+                    document.getElementById("demimotherName").innerHTML = resp.demimotherName;
+                    document.getElementById("wonderlandName").innerHTML = resp.wonderlandName;
+                    document.getElementById("ombreName").innerHTML = resp.ombreName;
+
+
+
+                    document.getElementById("toshiba1Price").innerHTML = resp.toshiba1Price;
+                    document.getElementById("toshiba2Price").innerHTML = resp.toshiba2Price;
+                    document.getElementById("toshiba3Price").innerHTML = resp.toshiba3Price;
+                    document.getElementById("toshiba4Price").innerHTML = resp.toshiba4Price;
+                    document.getElementById("toshiba5Price").innerHTML = resp.toshiba5Price;
+                    document.getElementById("lg1Price").innerHTML = resp.lg1Price;
+                    document.getElementById("lg2Price").innerHTML = resp.lg2Price;
+                    document.getElementById("lg3Price").innerHTML = resp.lg3Price
+                    document.getElementById("lg4Price").innerHTML = resp.lg4Price;
+ 		    document.getElementById("bosch1Price").innerHTML = resp.bosch1Price;
+                    document.getElementById("bosch2Price").innerHTML = resp.bosch2Price;
+                    document.getElementById("bosch3Price").innerHTML = resp.bosch3Price;
+                    document.getElementById("panasonic1Price").innerHTML = resp.panasonic1Price;
+                    document.getElementById("panasonic2Price").innerHTML = resp.panasonic2Price;
+		    document.getElementById("samsungwm1Price").innerHTML = resp.samsungwm1Price;
+		    document.getElementById("samsungwm2Price").innerHTML = resp.samsungwm2Price;
+		    document.getElementById("samsungtv1Price").innerHTML = resp.samsungtv1Price;
+		    document.getElementById("samsungtv2Price").innerHTML = resp.samsungtv2Price;
+		    document.getElementById("sonytv1Price").innerHTML = resp.sonytv1Price;
+		    document.getElementById("sonytv2Price").innerHTML = resp.sonytv2Price;
+		    document.getElementById("lgtv1Price").innerHTML = resp.lgtv1Price;
+		    document.getElementById("prismtv1Price").innerHTML = resp.prismtv1Price;
+		    document.getElementById("prismtv2Price").innerHTML = resp.prismtv2Price;
+		    document.getElementById("xiaomitv1Price").innerHTML = resp.xiaomitv1Price;
+		    document.getElementById("xiaomitv2Price").innerHTML = resp.xiaomitv2Price;
+		    document.getElementById("sharptv1Price").innerHTML = resp.sharptv1Price;
+		    document.getElementById("samsungsp1Price").innerHTML = resp.samsungsp1Price;
+		    document.getElementById("samsungsp2Price").innerHTML = resp.samsungsp2Price;
+		    document.getElementById("samsungsp3Price").innerHTML = resp.samsungsp3Price;
+		    document.getElementById("sonysp1Price").innerHTML = resp.sonysp1Price;
+		    document.getElementById("sonysp2Price").innerHTML = resp.sonysp2Price;
+		    document.getElementById("sonysp3Price").innerHTML = resp.sonysp3Price;
+		    document.getElementById("jblsp1Price").innerHTML = resp.jblsp1Price;
+		    document.getElementById("jblsp2Price").innerHTML = resp.jblsp2Price;
+		    document.getElementById("dinosaurlegoPrice").innerHTML = resp.dinosaurlegoPrice;
+		    document.getElementById("mariolegoPrice").innerHTML = resp.mariolegoPrice;
+		    document.getElementById("bricklegoPrice").innerHTML = resp.bricklegoPrice;
+		    document.getElementById("gameoflifePrice").innerHTML = resp.gameoflifePrice;
+		    document.getElementById("monopolyPrice").innerHTML = resp.monopolyPrice;
+		    document.getElementById("twisterPrice").innerHTML = resp.twisterPrice;
+		    document.getElementById("jengaPrice").innerHTML = resp.jengaPrice;
+		    document.getElementById("connect4Price").innerHTML = resp.connect4Price;
+		    document.getElementById("einmilkPrice").innerHTML = resp.einmilkPrice;
+		    document.getElementById("kendamilPrice").innerHTML = resp.kendamilPrice;
+		    document.getElementById("nestlePrice").innerHTML = resp.nestlePrice;
+		    document.getElementById("wyethPrice").innerHTML = resp.wyethPrice;
+		    document.getElementById("frisolacPrice").innerHTML = resp.frisolacPrice;
+		    document.getElementById("enfamilPrice").innerHTML = resp.enfamilPrice;
+		    document.getElementById("babyyardPrice").innerHTML = resp.babyyardPrice;
+		    document.getElementById("babytulaPrice").innerHTML = resp.babytulaPrice;
+		    document.getElementById("doonalikiPrice").innerHTML = resp.doonalikiPrice;
+		    document.getElementById("babyftgPrice").innerHTML = resp.babyftgPrice;
+		    document.getElementById("doonas3Price").innerHTML = resp.doonas3Price;
+		    document.getElementById("rockerdenimPrice").innerHTML = resp.rockerdenimPrice;
+		    document.getElementById("jaiecarPrice").innerHTML = resp.jaiecarPrice;
+		    document.getElementById("babybjornPrice").innerHTML = resp.babybjornPrice;
+		    document.getElementById("mentwillPrice").innerHTML = resp.mentwillPrice;
+		    document.getElementById("franklinspreadPrice").innerHTML = resp.franklinspreadPrice;
+		    document.getElementById("franklinstripesPrice").innerHTML = resp.franklinstripesPrice;
+		    document.getElementById("milanoroyalPrice").innerHTML = resp.milanoroyalPrice;
+		    document.getElementById("madisonforwardPrice").innerHTML = resp.madisonforwardPrice;
+		    document.getElementById("madisonbuttonPrice").innerHTML = resp.madisonbuttonPrice;
+		    document.getElementById("stretchpoplinPrice").innerHTML = resp.stretchpoplinPrice;
+		    document.getElementById("stretchginghamPrice").innerHTML = resp.stretchginghamPrice;
+		    document.getElementById("brookscoolPrice").innerHTML = resp.brookscoolPrice;
+		    document.getElementById("brooksflexmilanoPrice").innerHTML = resp.brooksflexmilanoPrice;
+		    document.getElementById("brooksflexregentPrice").innerHTML = resp.brooksflexregentPrice;
+		    document.getElementById("brooksflexmadisonPrice").innerHTML = resp.brooksflexmadisonPrice;
                     document.getElementById("hannesPrice").innerHTML = resp.hannesPrice;
                     document.getElementById("hilmaPrice").innerHTML = resp.hilmaPrice;
                     document.getElementById("lyssaPrice").innerHTML = resp.lyssaPrice;
@@ -4105,18 +4109,18 @@
                     document.getElementById("andreaPrice").innerHTML = resp.andreaPrice;
                     document.getElementById("bioncaPrice").innerHTML = resp.bioncaPrice;
                     document.getElementById("adynaPrice").innerHTML = resp.adynaPrice;
-					document.getElementById("tissot1Price").innerHTML = resp.tissot1Price;
-					document.getElementById("tissot2Price").innerHTML = resp.tissot2Price;
-					document.getElementById("tissot3Price").innerHTML = resp.tissot3Price;
-					document.getElementById("tissot4Price").innerHTML = resp.tissot4Price;
-					document.getElementById("tissot5Price").innerHTML = resp.tissot5Price;
-					document.getElementById("tissot6Price").innerHTML = resp.tissot6Price;
-					document.getElementById("bezelrosePrice").innerHTML = resp.bezelrosePrice;
-					document.getElementById("midicoralPrice").innerHTML = resp.midicoralPrice;
-					document.getElementById("blackrosePrice").innerHTML = resp.blackrosePrice;
-					document.getElementById("demimotherPrice").innerHTML = resp.demimotherPrice;
-					document.getElementById("wonderlandPrice").innerHTML = resp.wonderlandPrice;
-					document.getElementById("ombrePrice").innerHTML = resp.ombrePrice;
+		    document.getElementById("tissot1Price").innerHTML = resp.tissot1Price;
+		    document.getElementById("tissot2Price").innerHTML = resp.tissot2Price;
+		    document.getElementById("tissot3Price").innerHTML = resp.tissot3Price;
+		    document.getElementById("tissot4Price").innerHTML = resp.tissot4Price;
+		    document.getElementById("tissot5Price").innerHTML = resp.tissot5Price;
+		    document.getElementById("tissot6Price").innerHTML = resp.tissot6Price;
+		    document.getElementById("bezelrosePrice").innerHTML = resp.bezelrosePrice;
+		    document.getElementById("midicoralPrice").innerHTML = resp.midicoralPrice;
+		    document.getElementById("blackrosePrice").innerHTML = resp.blackrosePrice;
+		    document.getElementById("demimotherPrice").innerHTML = resp.demimotherPrice;
+		    document.getElementById("wonderlandPrice").innerHTML = resp.wonderlandPrice;
+		    document.getElementById("ombrePrice").innerHTML = resp.ombrePrice;
 
                 }
             }
@@ -4124,17 +4128,7 @@
             xmlhttp.open("POST", "product.php", true);
             xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xmlhttp.send();
-		}
-		
-		function searchItem(str){
-
-			var xmlhttp=new XMLHttpRequest();
-			xmlhttp.onreadystatechange=function() {}
-
-			xmlhttp.open("POST", "productFilter.php", true);
-            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xmlhttp.send("searchFilter=" + str);
-		}
+        }
 </script>
 
 <!--===============================================================================================-->
