@@ -77,10 +77,6 @@
 								<a href="product.html">Shop</a>
 							</li>
 
-							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.html">Features</a>
-							</li>
-
 							<li>
 								<a href="blog.html">Blog</a>
 							</li>
@@ -184,10 +180,6 @@
 
 				<li>
 					<a href="product.html">Shop</a>
-				</li>
-
-				<li>
-					<a href="shoping-cart.html" class="label1 rs1" data-label1="hot">Features</a>
 				</li>
 
 				<li>
@@ -657,7 +649,7 @@
                 }
             }
 
-            xmlhttp.open("POST", "product.php", true);
+            xmlhttp.open("POST", "retrieveproduct.php", true);
             xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xmlhttp.send();
         }
