@@ -1,10 +1,20 @@
 <?php
-
+$criteria = "";
+if(isset($_POST['criteria'])){
+      $criteria = '%' . $_POST['criteria'] . '%';
+}
 //fetch_item.php
 
 include('database_connection.php');
 
-$query = "SELECT * FROM Products ORDER BY serialNumber ASC";
+$query = "";
+
+if ($criteria != ""){
+$query = "SELECT * FROM Products where productName like '{$criteria}' or price like '{$criteria}' or category like '{$criteria}' or description like '{$criteria}'";
+}
+else{
+      $query = "SELECT * FROM Products";
+}
 
 $statement = $connect->prepare($query);
 
