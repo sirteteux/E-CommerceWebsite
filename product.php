@@ -1,4 +1,8 @@
 <?php
+$criteria = "";
+if(isset($_POST['searchCriteria'])){
+    $criteria = @$_POST['searchCriteria'];
+}
 //Name Variables
 //washing machines
 $toshiba1name = "";
@@ -229,7 +233,21 @@ $conn = mysqli_connect("localhost", "X34110222", "X34110222", "X34110222");
 if($conn === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
+$searchSql = "";
+$searchReply = array();
+if($criteria != ""){
+    $searchSql = "select distinct * from Products where productName like '{$criteria}' or description like '{$criteria}' or category like '{$criteria}' or price like '{$criteria}'";
+    $result = mysqli_query($conn, $searchSql);
 
+    if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        $searchReply[] = $row;
+    }
+    } else {
+    
+    }
+}
 // Product name SQL Query
 //washing machine
 $toshiba1NameSql = 'select productName from Products where serialNumber = "1"';
@@ -1129,6 +1147,12 @@ $jsonReply = json_encode($reply);
 
 
 header('Content-Type: application/json');
-echo $jsonReply;
+if ($criteria != ""){
+    echo json_encode($searchReply);
+}
+else{
+
+    echo $jsonReply;
+}
 
 ?>
