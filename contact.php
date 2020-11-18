@@ -24,6 +24,17 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+<style> 
+input[type=submit] {
+  background-color: #d3d3d3;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
 </head>
 <body>
 	
@@ -212,26 +223,39 @@
 
 	<!-- Content page -->
 	<section class="bg0 p-t-104 p-b-116">
+
 		<div class="container">
 			<div class="flex-w flex-tr">
 				<div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
-					<form>
+					<?php
+					if(isset($_POST["SubmitBtn"])){
+
+					$to = "wxabrand@gmail.com";
+					$subject = "Contact mail";
+					$from=$_POST["email"];
+					$msg=$_POST["msg"];
+					$headers = "From: $from";
+
+					mail($to,$subject,$msg,$headers);
+					echo "Email successfully sent.";
+					}
+					?>
+
+					<form id="emailForm" name="emailForm" method="post" action="" >
 						<h4 class="mtext-105 cl2 txt-center p-b-30">
 							Send Us A Message
 						</h4>
-
+					
 						<div class="bor8 m-b-20 how-pos4-parent">
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="email" placeholder="Your Email Address">
+							<input name="email" type="text" id="email" class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" placeholder="Your Email Address">
 							<img class="how-pos4 pointer-none" src="images/icons/icon-email.png" alt="ICON">
 						</div>
 
 						<div class="bor8 m-b-30">
-							<textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="msg" placeholder="How Can We Help?"></textarea>
+							<textarea name="msg" class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" id="msg" placeholder="How Can We Help?"></textarea>
 						</div>
 
-						<button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
-							Submit
-						</button>
+						<input name="SubmitBtn" type="submit" id="SubmitBtn" value="Submit">
 					</form>
 				</div>
 
@@ -288,49 +312,12 @@
 		</div>
 	</section>	
 	
-	
-	<!-- Map -->
-	<div class="map">
-		<div class="size-303" id="google_map" data-map-x="40.691446" data-map-y="-73.886787" data-pin="images/icons/pin.png" data-scrollwhell="0" data-draggable="1" data-zoom="11"></div>
-	</div>
-
 
 
 	<!-- Footer -->
 	<footer class="bg3 p-t-75 p-b-32">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-6 col-lg-3 p-b-50">
-					<h4 class="stext-301 cl0 p-b-30">
-						Categories
-					</h4>
-
-					<ul>
-						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Women
-							</a>
-						</li>
-
-						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Men
-							</a>
-						</li>
-
-						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Shoes
-							</a>
-						</li>
-
-						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Watches
-							</a>
-						</li>
-					</ul>
-				</div>
 
 				<div class="col-sm-6 col-lg-3 p-b-50">
 					<h4 class="stext-301 cl0 p-b-30">
