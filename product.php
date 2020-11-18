@@ -78,7 +78,7 @@
 							</li>
 
 							<li class="active-menu">
-								<a href="product.html">Shop</a>
+								<a href="product.php">Shop</a>
 							</li>
 
 							<li>
@@ -90,7 +90,7 @@
 							</li>
 
 							<li>
-								<a href="contact.html">Contact</a>
+								<a href="contact.php">Contact</a>
 							</li>
 						</ul>
 					</div>	
@@ -172,7 +172,7 @@
 				</li>
 
 				<li>
-					<a href="product.html">Shop</a>
+					<a href="product.php">Shop</a>
 				</li>
 
 				<li>
@@ -184,7 +184,7 @@
 				</li>
 
 				<li>
-					<a href="contact.html">Contact</a>
+					<a href="contact.php">Contact</a>
 				</li>
 			</ul>
 		</div>

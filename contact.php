@@ -85,7 +85,7 @@ input[type=submit] {
 							</li>
 
 							<li>
-								<a href="product.html">Shop</a>
+								<a href="product.php">Shop</a>
 							</li>
 
 							<li>
@@ -96,8 +96,8 @@ input[type=submit] {
 								<a href="about.html">About</a>
 							</li>
 
-							<li class="active-menu">
-								<a href="contact.html">Contact</a>
+							<li>
+								<a href="contact.php">Contact</a>
 							</li>
 						</ul>
 					</div>	
@@ -179,7 +179,7 @@ input[type=submit] {
 				</li>
 
 				<li>
-					<a href="product.html">Shop</a>
+					<a href="product.php">Shop</a>
 				</li>
 
 				<li>
@@ -191,7 +191,7 @@ input[type=submit] {
 				</li>
 
 				<li>
-					<a href="contact.html">Contact</a>
+					<a href="contact.php">Contact</a>
 				</li>
 			</ul>
 		</div>
