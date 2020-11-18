@@ -43,7 +43,7 @@
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="FAQ.pdf" class="flex-c-m trans-04 p-lr-25" download>
 							Help & FAQs
 						</a>
 
@@ -192,7 +192,7 @@
 		<!-- Modal Search -->
 		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
 			<div class="container-search-header">
-				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search" id="closeBtn">
 					<img src="images/icons/icon-close2.png" alt="CLOSE">
 				</button>
 
@@ -368,6 +368,7 @@ $(document).ready(function(){
 
 function validateSearch(){
 		var str = document.forms["searchForm"]["search"].value;
+
 		if (str.trim() == ""){
 			return false;
 		}
@@ -384,7 +385,7 @@ function showResult() {
    data:{criteria:str},
    success:function(data)
    {
-       console.log("search");
+    document.getElementById("closeBtn").click();
     $('#display_item').html(data);
    }
   });
