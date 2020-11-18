@@ -68,11 +68,11 @@
                             Donate For A Cause
                         </a>
 
-			<a href="AdminAccountEdit.html" class="flex-c-m trans-04 p-lr-25">
+			<a href="AdminAccountEdit.php" class="flex-c-m trans-04 p-lr-25">
                             User Database
                         </a>
 
-                        <a href="AdminProductEdit.html" class="flex-c-m trans-04 p-lr-25">
+                        <a href="AdminProductEdit.php" class="flex-c-m trans-04 p-lr-25">
                             Product Database
                         </a>
                     </div>
@@ -98,20 +98,12 @@
                                 <a href="AdminProduct.html">Shop</a>
                             </li>
 
-                            <li class="label1" data-label1="hot">
-                                <a href="shoping-cart.html">Features</a>
-                            </li>
-
                             <li>
                                 <a href="AdminBlog.html">Blog</a>
                             </li>
 
                             <li>
                                 <a href="AdminAbout.html">About</a>
-                            </li>
-
-                            <li class="active-menu">
-                                <a href="contact.html">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -120,11 +112,6 @@
                     <div class="wrap-icon-header flex-w flex-r-m">
                         <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
                             <i class="zmdi zmdi-search"></i>
-                        </div>
-
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
-                            data-notify="2">
-                            <i class="zmdi zmdi-shopping-cart"></i>
                         </div>
 
                         <a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
@@ -147,11 +134,6 @@
             <div class="wrap-icon-header flex-w flex-r-m m-r-15">
                 <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
                     <i class="zmdi zmdi-search"></i>
-                </div>
-
-                <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart"
-                    data-notify="2">
-                    <i class="zmdi zmdi-shopping-cart"></i>
                 </div>
 
                 <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
@@ -188,11 +170,11 @@
                             Donate For A Cause
                         </a>
 
-			<a href="AdminAccountEdit.html" class="flex-c-m trans-04 p-lr-25">
+			<a href="AdminAccountEdit.php" class="flex-c-m trans-04 p-lr-25">
                             User Database
                         </a>
 
-                        <a href="AdminProductEdit.html" class="flex-c-m trans-04 p-lr-25">
+                        <a href="AdminProductEdit.php" class="flex-c-m trans-04 p-lr-25">
                             Product Database
                         </a>
                     </div>
@@ -202,9 +184,6 @@
             <ul class="main-menu-m">
                 <li>
                     <a href="AdminHome.html">Home</a>
-                    <span class="arrow-main-menu-m">
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                    </span>
                 </li>
 
                 <li>
@@ -442,6 +421,8 @@
     <!--===============================================================================================-->
     <script src="vendor/bootstrap/js/popper.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
     <!--===============================================================================================-->
     <script src="vendor/select2/select2.min.js"></script>
     <script>
@@ -471,9 +452,6 @@
             })
         });
     </script>
-    <!--===============================================================================================-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
-    <script src="js/map-custom.js"></script>
     <!--===============================================================================================-->
     <script src="js/main.js"></script>
 

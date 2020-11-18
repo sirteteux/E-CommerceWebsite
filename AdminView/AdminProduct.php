@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>About</title>
+	<title>Product</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -18,6 +18,12 @@
 	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/MagnificPopup/magnific-popup.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
 <!--===============================================================================================-->
@@ -43,7 +49,7 @@
 							Help & FAQs
 						</a>
 
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							Donate For A Cause
 						</a>
 
@@ -74,7 +80,7 @@
 							</li>
 
 							<li>
-								<a href="AdminProduct.php">Shop</a>
+								<a href="AdminProduct.html">Shop</a>
 							</li>
 
 							<li>
@@ -145,15 +151,18 @@
 
 						<a href="#" class="flex-c-m p-lr-10 trans-04">
 							Donate For A Cause
-                        </a>
-                        
+						</a>
+
+
 						<a href="AdminAccountEdit.php" class="flex-c-m p-lr-10 trans-04">
 							User Database
 						</a>
 
-						<a href="AccountProductEdit.php" class="flex-c-m trans-04 p-lr-25">
+						<a href="AdminProductEdit.php" class="flex-c-m trans-04 p-lr-25">
 							Product Database
 						</a>
+
+						<!-- ID of the user should appear here-->
 					</div>
 				</li>
 			</ul>
@@ -164,16 +173,16 @@
 				</li>
 
 				<li>
-                    			<a href="AdminProduct.html">Shop</a>
-                		</li>
+                    <a href="AdminProduct.html">Shop</a>
+                </li>
 
-               			 <li>
-                    			<a href="AdminBlog.html">Blog</a>
-                		</li>
+                <li>
+                    <a href="AdminBlog.html">Blog</a>
+                </li>
 
-                		<li>
-                    			<a href="AdminAbout.html">About</a>
-                		</li>
+                <li>
+                    <a href="AdminAbout.html">About</a>
+                </li>
 			</ul>
 		</div>
 
@@ -194,196 +203,191 @@
 		</div>
 	</header>
 
-	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
-		<h2 class="ltext-105 cl0 txt-center">
-			About
-		</h2>
-	</section>	
+		<div class="container">   
+   <div class="panel panel-default">
+    <div class="panel-heading">
+     <div class="row">
+      <div class="col-md-6">Cart Details</div>
+      <div class="col-md-6" align="right">
+       <button type="button" name="clear_cart" id="clear_cart" class="btn btn-warning btn-xs">Clear</button>
+      </div>
+     </div>
+    </div>
+    <div class="panel-body" id="shopping_cart">
+
+    </div>
+   </div>
+
+   <div class="panel panel-default">
+    <div class="panel-heading">
+     <div class="row">
+      <div class="col-md-6">Product List</div>
+      <div class="col-md-6" align="right">
+       <button type="button" name="add_to_cart" id="add_to_cart" class="btn btn-success btn-xs">Add to Cart</button>
+      </div>
+     </div>
+    </div>
+    <div class="panel-body" id="display_item">
+
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
+
+<script>  
+$(document).ready(function(){
+
+ load_product();
+
+ load_cart_data();
+    
+ function load_product()
+ {
+  $.ajax({
+   url:"fetch_item.php",
+   method:"POST",
+   success:function(data)
+   {
+    $('#display_item').html(data);
+   }
+  });
+ }
+
+ function load_cart_data()
+ {
+  $.ajax({
+   url:"fetch_cart.php",
+   method:"POST",
+   success:function(data)
+   {
+    $('#shopping_cart').html(data);
+   }
+  });
+ }
+
+ $(document).on('click', '.select_product', function(){
+  var product_id = $(this).data('product_id');
+  if($(this).prop('checked') == true)
+  {
+   $('#product_'+product_id).css('background-color', '#f1f1f1');
+   $('#product_'+product_id).css('border-color', '#333');
+  }
+  else
+  {
+   $('#product_'+product_id).css('background-color', 'transparent');
+   $('#product_'+product_id).css('border-color', '#ccc');
+  }
+ });
+
+ $('#add_to_cart').click(function(){
+  var product_id = [];
+  var product_name = [];
+  var product_price = [];
+  var action = "add";
+  $('.select_product').each(function(){
+   if($(this).prop('checked') == true)
+   {
+    product_id.push($(this).data('product_id'));
+    product_name.push($(this).data('product_name'));
+    product_price.push($(this).data('product_price'));
+   }
+  });
+
+  if(product_id.length > 0)
+  {
+   $.ajax({
+    url:"action.php",
+    method:"POST",
+    data:{product_id:product_id, product_name:product_name, product_price:product_price, action:action},
+    success:function(data)
+    {
+     $('.select_product').each(function(){
+      if($(this).prop('checked') == true)
+      {
+       $(this).attr('checked', false);
+       var temp_product_id = $(this).data('product_id');
+       $('#product_'+temp_product_id).css('background-color', 'transparent');
+       $('#product_'+temp_product_id).css('border-color', '#ccc');
+      }
+     });
+
+     load_cart_data();
+     alert("Item has been Added into Cart");
+    }
+   });
+  }
+  else
+  {
+   alert('Select atleast one item');
+  }
+
+ });
+
+ $(document).on('click', '.delete', function(){
+  var product_id = $(this).attr("id");
+  var action = 'remove';
+  if(confirm("Are you sure you want to remove this product?"))
+  {
+   $.ajax({
+    url:"action.php",
+    method:"POST",
+    data:{product_id:product_id, action:action},
+    success:function()
+    {
+     load_cart_data();
+     alert("Item has been removed from Cart");
+    }
+   })
+  }
+  else
+  {
+   return false;
+  }
+ });
+
+ $(document).on('click', '#clear_cart', function(){
+  var action = 'empty';
+  $.ajax({
+   url:"action.php",
+   method:"POST",
+   data:{action:action},
+   success:function()
+   {
+    load_cart_data();
+    alert("Your Cart has been clear");
+   }
+  });
+ });
+    
+});
 
 
-		<!-- Content page -->
-	<section class="bg0 p-t-75 p-b-120">
-		<div class="container">
-			<div class="row p-b-148">
-				<div class="col-md-7 col-lg-8">
-					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
-						<h3 class="mtext-111 cl2 p-b-16">
-							Our Story
-						</h3>
+function validateSearch(){
+		var str = document.forms["searchForm"]["search"].value;
 
-						<p class="stext-113 cl6 p-b-26">
-							Founded in 2020, WXABrand is Singaporeâ€™s leading eCommerce platform. With a presence in three countries â€“ Indonesia, Malaysia and Singapore â€“ we connect this region through our technology, logistics and payments capabilities.
-
-						</p>
-					</div>
-				</div>
-
-				<div class="col-11 col-md-5 col-lg-4 m-lr-auto">
-					<div class="how-bor1 ">
-						<div class="hov-img0">
-							<img src="images/about-01.jpg" alt="IMG">
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="order-md-2 col-md-7 col-lg-8 p-b-30">
-					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md">
-						<h3 class="mtext-111 cl2 p-b-16">
-							Our Mission
-						</h3>
-
-						<p class="stext-113 cl6 p-b-26">
-							â€œEffortless shoppingâ€ - We wish to help consumers purchase the products they need during this pandemic with comfort at home or on the go.
-						<br/><br/>
-							â€œHelping those in needâ€ - We encourage donations to help those who are less fortunate to get through this pandemic.
-
-						</p>
-
-						<div class="bor16 p-l-29 p-b-9 m-t-22">
-							<p class="stext-114 cl6 p-r-40 p-b-11">
-								Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn't really do it, they just saw something. It seemed obvious to them after a while.
-							</p>
-
-							<span class="stext-111 cl8">
-								- Steve Jobâ€™s 
-							</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30">
-					<div class="how-bor2">
-						<div class="hov-img0">
-							<img src="images/icons/WXABrand.jpg" alt="IMG">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>	
+		if (str.trim() == ""){
+			return false;
+		}
+		$("#searchForm").submit(function(e) {
+			e.preventDefault();
+		});
+	}
 	
-		
-
-	<!-- Footer -->
-	<footer class="bg3 p-t-75 p-b-32">
-		<div class="container">
-
-				<div class="col-sm-6 col-lg-3 p-b-50">
-					<h4 class="stext-301 cl0 p-b-30">
-						Help
-					</h4>
-
-					<ul>
-						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Track Order
-							</a>
-						</li>
-
-						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Returns 
-							</a>
-						</li>
-
-						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Shipping
-							</a>
-						</li>
-
-						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								FAQs
-							</a>
-						</li>
-					</ul>
-				</div>
-
-				<div class="col-sm-6 col-lg-3 p-b-50">
-					<h4 class="stext-301 cl0 p-b-30">
-						GET IN TOUCH
-					</h4>
-
-					<p class="stext-107 cl7 size-201">
-						Any questions? Let us know in person at <br>
-						Geylang St 22, #01-01, Singapore 512345 <br>
-						Call us on (+65)6288 0000<br>
-						Email us @ WXABrand@gmail.com
-					</p>
-
-					<div class="p-t-27">
-						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-							<i class="fa fa-facebook"></i>
-						</a>
-
-						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-							<i class="fa fa-instagram"></i>
-						</a>
-
-						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-							<i class="fa fa-pinterest-p"></i>
-						</a>
-					</div>
-				</div>
-
-				<div class="col-sm-6 col-lg-3 p-b-50">
-					<h4 class="stext-301 cl0 p-b-30">
-						Newsletter
-					</h4>
-
-					<form>
-						<div class="wrap-input1 w-full p-b-4">
-							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
-							<div class="focus-input1 trans-04"></div>
-						</div>
-
-						<div class="p-t-18">
-							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-								Subscribe
-							</button>
-						</div>
-					</form>
-				</div>
-			</div>
-
-			<div class="p-t-40">
-				<div class="flex-c-m flex-w p-b-18">
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-01.png" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-02.png" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-03.png" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-04.png" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-05.png" alt="ICON-PAY">
-					</a>
-				</div>
-			</div>
-		</div>
-	</footer>
-
-
-	<!-- Back to top -->
-	<div class="btn-back-to-top" id="myBtn">
-		<span class="symbol-btn-back-to-top">
-			<i class="zmdi zmdi-chevron-up"></i>
-		</span>
-	</div>
-
+function showResult() {
+    var str = document.forms["searchForm"]["search"].value;
+	$.ajax({
+   url:"fetch_item.php",
+   method:"POST",
+   data:{criteria:str},
+   success:function(data)
+   {
+    document.getElementById("closeBtn").click();
+    $('#display_item').html(data);
+   }
+  });
+}
+</script>
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -400,6 +404,59 @@
 				dropdownParent: $(this).next('.dropDownSelect2')
 			});
 		})
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/slick/slick.min.js"></script>
+	<script src="js/slick-custom.js"></script>
+<!--===============================================================================================-->
+	<script>
+		$('.gallery-lb').each(function() { // the containers for all your galleries
+			$(this).magnificPopup({
+		        delegate: 'a', // the selector for gallery item
+		        type: 'image',
+		        gallery: {
+		        	enabled:true
+		        },
+		        mainClass: 'mfp-fade'
+		    });
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/sweetalert/sweetalert.min.js"></script>
+	<script>
+		$('.js-addwish-b2, .js-addwish-detail').on('click', function(e){
+			e.preventDefault();
+		});
+
+		$('.js-addwish-b2').each(function(){
+			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-b2');
+				$(this).off('click');
+			});
+		});
+
+		$('.js-addwish-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-detail');
+				$(this).off('click');
+			});
+		});
+
+
+		$('.js-addcart-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to cart !", "success");
+			});
+		});
+	
 	</script>
 <!--===============================================================================================-->
 	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
@@ -420,6 +477,3 @@
 	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
-	
-</body>
-</html>
