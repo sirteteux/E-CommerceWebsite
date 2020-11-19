@@ -10,7 +10,7 @@ include('database_connection.php');
 $query = "";
 
 if ($criteria != ""){
-$query = "SELECT * FROM Products where productName like '{$criteria}' or price like '{$criteria}' or category like '{$criteria}' or description like '{$criteria}'";
+$query = "SELECT distinct * FROM Products where productName like '{$criteria}' or price like '{$criteria}' or category like '{$criteria}' or description like '{$criteria}'";
 }
 else{
       $query = "SELECT * FROM Products";

@@ -213,7 +213,7 @@
 						</h4>
 
 						<div class="bor8 m-b-20 how-pos4-parent">
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="email" placeholder="Email Address" id="email">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="email" name="email" placeholder="Email Address" id="email">
 						</div>
 
 						<div class="bor8 m-b-20 how-pos4-parent">
@@ -225,8 +225,32 @@
 					</form>
 					<script>
 					$(function(){
-						document.cookie = "userDetails=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+						if (validateSession()){
+							document.forms["login"]["email"].focus();
+						}
+						else{
+							document.cookie = "userDetails=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+						}
 					})
+
+					function validateSession(){
+						var xmlhttp=new XMLHttpRequest();
+						xmlhttp.onreadystatechange=function() {
+							if (this.readyState==4 && this.status==200) {
+								resp = JSON.parse(this.responseText);
+								if(resp.username != null){
+									checkCookie();
+								}
+								else{
+									return false;
+								}
+							}
+						}
+						
+						xmlhttp.open("POST", "checkLoggedIn.php", true);
+						xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+						xmlhttp.send();
+					}
 					function validateLogin() {
 						var email = document.forms["login"]["email"].value;
 						var password = document.forms["login"]["password"].value;
@@ -254,13 +278,13 @@
 							if (this.readyState==4 && this.status==200) {
 								resp = JSON.parse(this.responseText);
 								if(resp.userType != null){
-									setCookie(resp.email, resp.userType, 30);
+									setCookie(resp.userName, resp.email, resp.userType, 30);
 									checkCookie(); 
 									if (resp.userType == "admin"){
 										window.location = "AdminView/AdminHome.html";
 									}
 									else if (resp.userType == "member"){
-										window.location = "UserView/UserHome.html";
+										window.location = "index.html";
 									}
 								}
 								else{
@@ -275,11 +299,11 @@
 						xmlhttp.send("email=" + email + "&pwd=" + password);
 					}
 
-					function setCookie(inputEmail,UserType, exdays) {
+					function setCookie(inputName,inputEmail,UserType, exdays) {
 						var d = new Date();
 						
 						var cdomain = "ceto.murdoch.edu.au/~34110222/assignment2/assignment2";
-						var cvalue = JSON.stringify({user:inputEmail,userType:UserType,visitedOn:d.getTime(),domain:cdomain});
+						var cvalue = JSON.stringify({userName:inputName,userEmail:inputEmail,userType:UserType,domain:cdomain});
 						d.setTime(d.getTime() + (exdays*24*60*60*1000));
 						var expires = "expires=" + d.toGMTString();
 						//console.log("setting cookies");
@@ -309,12 +333,10 @@
 						var userDetails= getCookie("userDetails");
 						var domain=getCookie("domain");
 						if (userDetails != "") {
-							console.log(userDetails.user);
-							console.log(userDetails.domain);
+							console.log(userDetails.userName);
 						} 
 						else{
-							console.log("cookies not set");
-							console.log(domain);
+							return false;
 						}
 					}
                     </script>
@@ -326,7 +348,7 @@
     <br><br>
 
 	<!-- Footer -->
-	<footer class="bg3 p-t-75 p-b-32">
+	<!-- <footer class="bg3 p-t-75 p-b-32">
 		<div class="container">
 			<div class="row">
 
@@ -433,7 +455,7 @@
 				</div>
 			</div>
 		</div>
-	</footer>
+	</footer> -->
 
 
 	<!-- Back to top -->
