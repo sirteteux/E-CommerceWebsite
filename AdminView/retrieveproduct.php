@@ -219,7 +219,18 @@ $hilmadesc = "";
 $toshiba1desc ="";
 
 //Picture Variables
+$prismtv1pic ="";
+$prismtv2pic ="";
+$samsungsp1pic ="";
+$samsungsp2pic ="";
 $mentwillpic ="";
+$franklinstripesPic ="";
+$milanoroyalPic ="";
+$stretchginghamPic ="";
+$tissot1Pic ="";
+$tissot2Pic ="";
+$wonderlandPic ="";
+$ombreprice ="";
 $hilmapic ="";
 
 //Database connection [WeiXiong's Database]
@@ -450,7 +461,18 @@ $hilmaDescSql = 'select description from Products where serialNumber = "68"';
 $toshiba1DescSql = 'select description from Products where serialNumber = "1"';
 
 //Product picture SQL Queries
+$prismtv1PicSql = 'select pictures from Products where serialNumber = "21"';
+$prismtv2PicSql= 'select pictures from Products where serialNumber = "22"';
+$samsungsp1PicSql = 'select pictures from Products where serialNumber = "26"';
+$samsungsp2PicSql= 'select pictures from Products where serialNumber = "27"';
 $mentwillPicSql = 'select pictures from Products where serialNumber = "55"';
+$franklinstripesPicSql = 'select pictures from Products where serialNumber = "57"';
+$milanoroyalPicSql = 'select pictures from Products where serialNumber = "58"';
+$stretchginghamPicSql = 'select pictures from Products where serialNumber = "61"';
+$tissot1PicSql = 'select pictures from Products where serialNumber = "79"';
+$tissot2PicSql = 'select pictures from Products where serialNumber = "80"';
+$wonderlandPicSql = 'select pictures from Products where serialNumber = "89"';
+$ombrePicSql = 'select pictures from Products where serialNumber = "90"';
 $hilmaPicSql = 'select pictures from Products where serialNumber = "68"';
 
 //Database Retrieved from queries [Description]
@@ -459,7 +481,18 @@ $hilmaDesc = mysqli_query($conn, $hilmaDescSql ) or trigger_error("Query Failed!
 $toshiba1Desc = mysqli_query($conn, $toshiba1DescSql ) or trigger_error("Query Failed! SQL: $toshiba1DescSql - Error: ".mysqli_error($conn), E_USER_ERROR);
 
 //Database Retrieved from queries [Picture]
+$prismtv1Pic = mysqli_query($conn, $prismtv1PicSql ) or trigger_error("Query Failed! SQL: $prismtv1PicSql - Error: ".mysqli_error($conn), E_USER_ERROR);
+$prismtv2Pic = mysqli_query($conn, $prismtv2PicSql) or trigger_error("Query Failed! SQL: $prismtv2PicSql - Error: ".mysqli_error($conn), E_USER_ERROR);
+$samsungsp1Pic = mysqli_query($conn, $samsungsp1PicSql ) or trigger_error("Query Failed! SQL: $samsungsp1PicSql - Error: ".mysqli_error($conn), E_USER_ERROR);
+$samsungsp2Pic = mysqli_query($conn, $samsungsp2PicSql) or trigger_error("Query Failed! SQL: $samsungsp2PicSql - Error: ".mysqli_error($conn), E_USER_ERROR);
 $mentwillPic = mysqli_query($conn, $mentwillPicSql) or trigger_error("Query Failed! SQL: $mentwillPicSql - Error: ".mysqli_error($conn), E_USER_ERROR);
+$franklinstripesPic = mysqli_query($conn, $franklinstripesPicSql ) or trigger_error("Query Failed! SQL: $franklinstripesPicSql - Error: ".mysqli_error($conn), E_USER_ERROR);
+$milanoroyalPic = mysqli_query($conn, $milanoroyalPicSql ) or trigger_error("Query Failed! SQL: $milanoroyalPicSql - Error: ".mysqli_error($conn), E_USER_ERROR);
+$stretchginghamPic = mysqli_query($conn, $stretchginghamPicSql ) or trigger_error("Query Failed! SQL: $stretchginghamPicSql - Error: ".mysqli_error($conn), E_USER_ERROR);
+$tissot1Pic = mysqli_query($conn, $tissot1PicSql ) or trigger_error("Query Failed! SQL: $tissot1PicSql - Error: ".mysqli_error($conn), E_USER_ERROR);
+$tissot2Pic = mysqli_query($conn, $tissot2PicSql ) or trigger_error("Query Failed! SQL: $tissot2PicSql - Error: ".mysqli_error($conn), E_USER_ERROR);
+$wonderlandPic = mysqli_query($conn, $wonderlandPicSql ) or trigger_error("Query Failed! SQL: $wonderlandPicSql - Error: ".mysqli_error($conn), E_USER_ERROR);
+$ombrePic = mysqli_query($conn, $ombrePicSql ) or trigger_error("Query Failed! SQL: $ombrePicSql - Error: ".mysqli_error($conn), E_USER_ERROR);
 $hilmaPic = mysqli_query($conn, $hilmaPicSql ) or trigger_error("Query Failed! SQL: $hilmaPicSql - Error: ".mysqli_error($conn), E_USER_ERROR);
 
 //Database Retrieved from queries [Name]
@@ -897,7 +930,19 @@ $hilmadesc = $hilmaDesc ->fetch_array()['description'];
 $toshiba1desc = $toshiba1Desc ->fetch_array()['description'];
 
 //Variables defined and $[variable] fetch specific row from 'X34110222' Database [Pictures]
+$prismtv1pic = $prismtv1Pic ->fetch_array()['pictures'];
+$prismtv2pic = $prismtv2Pic ->fetch_array()['pictures'];
+$samsungsp1pic = $samsungsp1Pic ->fetch_array()['pictures'];
+$samsungsp2pic = $samsungsp2Pic ->fetch_array()['pictures'];
+
 $mentwillpic = $mentwillPic ->fetch_array()['pictures'];
+$franklinstripespic = $franklinstripesPic ->fetch_array()['pictures'];
+$milanoroyalpic = $milanoroyalPic ->fetch_array()['pictures'];
+$stretchginghampic = $stretchginghamPic ->fetch_array()['pictures'];
+$tissot1pic = $tissot1Pic ->fetch_array()['pictures'];
+$tissot2pic = $tissot2Pic ->fetch_array()['pictures'];
+$wonderlandpic = $wonderlandPic ->fetch_array()['pictures'];
+$ombrepic = $ombrePic ->fetch_array()['pictures'];
 $hilmapic = $hilmaPic ->fetch_array()['pictures'];
 
 //After fetching, reply it to the specific element. [Description]
@@ -905,8 +950,20 @@ $reply->mentwillDesc = $mentwilldesc;
 $reply->hilmaDesc = $hilmadesc;
 $reply->toshiba1Desc = $toshiba1desc;
 
-//After fetching, reply it to the specific element. [Picture]
+//After fetching, reply it to the specific element. [Pictures]
+$reply->prismtv1Pic = $prismtv1pic;
+$reply->prismtv2Pic = $prismtv2pic;
+$reply->samsungsp1Pic = $samsungsp1pic;
+$reply->samsungsp2Pic = $psamsungsp2pic;
+
 $reply->mentwillPic = $mentwillpic;
+$reply->franklinstripesPic = $franklinstripespic ;
+$reply->milanoroyalPic = $milanoroyalpic;
+$reply->stretchginghamPic = $stretchginghampic;
+$reply->tissot1Pic = $tissot1pic;
+$reply->tissot2Pic = $tissot2pic;
+$reply->wonderlandPic = $wonderlandpic;
+$reply->ombrePic = $ombrepic;
 $reply->hilmaPic = $hilmapic ;
 
 
