@@ -130,6 +130,7 @@
 						<a href="UserAccount.html" class="flex-c-m trans-04 p-lr-25">
 							My Account
 						</a>
+						<p id="welcomeMsg"></p>
 					</div>
 				</li>
 			</ul>
@@ -910,6 +911,45 @@
         $(function(){
             loadContent();
         });
+
+		function setCookie(inputName,inputEmail,UserType) {
+			var cdomain = "ceto.murdoch.edu.au/~34110222/assignment2/assignment2";
+			var cvalue = JSON.stringify({userName:inputName,userEmail:inputEmail,userType:UserType,domain:cdomain});
+			var expires = "expires=" + d.toGMTString();
+			//console.log("setting cookies");
+			document.cookie =  "userDetails=" + cvalue + ";" + expires + ";path=/";
+			//document.cookie =  "userDetails=" + cvalue + ";domain=" + cdomain + ";" + expires + ";path=/";
+		}
+
+		function getCookie(cname) {
+			var name = cname + "=";
+			var decodedCookie = decodeURIComponent(document.cookie);
+			var ca = decodedCookie.split(';');
+			console.log(ca);
+			for(var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(name) == 0) {
+					var c = c.substring(name.length, c.length);
+					return JSON.parse(c);
+				}
+			}
+			return "";
+		}
+
+		function checkCookie() {
+			var userDetails= getCookie("userDetails");
+			var domain=getCookie("domain");
+			if (userDetails != "") { 
+				document.getElementById("welcomeMsg").innerHTML = "Hi " + userDetails.userName;
+				console.log(userDetails.userName);
+			} 
+			else{
+				return false;
+			}
+		}
 
         function loadContent(){
             var xmlhttp=new XMLHttpRequest();
