@@ -74,10 +74,6 @@
                                 <a href="product.html">Shop</a>
                             </li>
 
-                            <li class="label1" data-label1="hot">
-                                <a href="shoping-cart.html">Features</a>
-                            </li>
-
                             <li>
                                 <a href="blog.html">Blog</a>
                             </li>
@@ -94,15 +90,6 @@
 
                     <!-- Icon header -->
                     <div class="wrap-icon-header flex-w flex-r-m">
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-                            <i class="zmdi zmdi-search"></i>
-                        </div>
-
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
-                            data-notify="2">
-                            <i class="zmdi zmdi-shopping-cart"></i>
-                        </div>
-
                         <a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
                             data-notify="0">
                             <i class="zmdi zmdi-favorite-outline"></i>
@@ -121,15 +108,6 @@
 
             <!-- Icon header -->
             <div class="wrap-icon-header flex-w flex-r-m m-r-15">
-                <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
-                    <i class="zmdi zmdi-search"></i>
-                </div>
-
-                <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart"
-                    data-notify="2">
-                    <i class="zmdi zmdi-shopping-cart"></i>
-                </div>
-
                 <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
                     data-notify="0">
                     <i class="zmdi zmdi-favorite-outline"></i>
@@ -163,32 +141,25 @@
                         <a href="#" class="flex-c-m p-lr-10 trans-04">
                             Donate For A Cause
                         </a>
-
-                        <a href="AdminAccount.html" class="flex-c-m p-lr-10 trans-04">
-                            My Account
-                        </a>
                     </div>
                 </li>
             </ul>
 
             <ul class="main-menu-m">
                 <li>
-                    <a href="AdminHome.html">Home</a>
-                    <span class="arrow-main-menu-m">
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                    </span>
+                    <a href="index.html">Home</a>
                 </li>
 
                 <li>
-                    <a href="AdminProduct.html">Shop</a>
+                    <a href="product.php">Shop</a>
                 </li>
 
                 <li>
-                    <a href="AdminBlog.html">Blog</a>
+                    <a href="blog.html">Blog</a>
                 </li>
 
                 <li>
-                    <a href="AdminAbout.html">About</a>
+                    <a href="about.html">About</a>
                 </li>
             </ul>
         </div>
@@ -199,13 +170,6 @@
                 <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
                     <img src="images/icons/icon-close2.png" alt="CLOSE">
                 </button>
-
-                <form class="wrap-search-header flex-w p-l-15">
-                    <button class="flex-c-m trans-04">
-                        <i class="zmdi zmdi-search"></i>
-                    </button>
-                    <input class="plh3" type="text" name="search" placeholder="Search...">
-                </form>
             </div>
         </div>
     </header>
@@ -245,11 +209,11 @@ mysqli_close($link);
 <section class="bg0 p-t-104 p-b-500">
             <div class="flex-w flex-tr">
                 <div class="size-210 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
-    <input type="submit" onclick="location.href='http://ceto.murdoch.edu.au/~34095187/assignment2/login.php'"
+    <input type="submit" onclick="location.href='http://ceto.murdoch.edu.au/~34095187/assignment2/login.html'"
         class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" value="Login">
     </input>
     <br>
-    <input  type="submit" onclick="location.href='http://ceto.murdoch.edu.au/~34095187/assignment2/index.php'"
+    <input  type="submit" onclick="location.href='http://ceto.murdoch.edu.au/~34095187/assignment2/index.html'"
         class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"
         value="Back To Home">
     </input>
