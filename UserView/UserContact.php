@@ -50,7 +50,7 @@ input[type=submit] {
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="../guide.pdf" class="flex-c-m trans-04 p-lr-25" download>
 							Help & FAQs
 						</a>
 
@@ -142,7 +142,7 @@ input[type=submit] {
 
 				<li>
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
+						<a href="../guide.pdf" class="flex-c-m p-lr-10 trans-04" download>
 							Help & FAQs
 						</a>
 
