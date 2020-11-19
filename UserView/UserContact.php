@@ -61,6 +61,11 @@ input[type=submit] {
 						<a href="UserAccount.html" class="flex-c-m trans-04 p-lr-25">
 							My Account
 						</a>
+
+						<a href="logout.php" class="flex-c-m trans-04 p-lr-25">
+							Logout
+						</a>
+
 					</div>
 				</div>
 			</div>
@@ -81,7 +86,7 @@ input[type=submit] {
 							</li>
 
 							<li>
-								<a href="UserProduct.html">Shop</a>
+								<a href="UserProduct.php">Shop</a>
 							</li>
 
 							<li>
@@ -93,7 +98,7 @@ input[type=submit] {
 							</li>
 
 							<li>
-								<a href="UserContact.html">Contact</a>
+								<a href="UserContact.php">Contact</a>
 							</li>
 						</ul>
 					</div>	
@@ -153,6 +158,11 @@ input[type=submit] {
 						<a href="UserAccount.html" class="flex-c-m trans-04 p-lr-25">
 							My Account
 						</a>
+
+						<a href="logout.php" class="flex-c-m trans-04 p-lr-25">
+							Logout
+						</a>
+
 					</div>
 				</li>
 			</ul>

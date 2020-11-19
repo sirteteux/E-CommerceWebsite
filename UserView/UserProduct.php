@@ -54,6 +54,11 @@
 						<a href="UserAccount.html" class="flex-c-m trans-04 p-lr-25">
 							My Account
 						</a>
+
+						<a href="logout.php" class="flex-c-m trans-04 p-lr-25">
+							Logout
+						</a>
+
 					</div>
 				</div>
 			</div>
@@ -154,6 +159,11 @@
 						<a href="UserAccount.html" class="flex-c-m trans-04 p-lr-25">
 							My Account
 						</a>
+
+						<a href="logout.php" class="flex-c-m trans-04 p-lr-25">
+							Logout
+						</a>
+
 					</div>
 				</li>
 			</ul>

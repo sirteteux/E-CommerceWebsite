@@ -64,6 +64,11 @@
 						<a href="AdminProductEdit.php" class="flex-c-m trans-04 p-lr-25">
 							Product Database
 						</a>
+
+						<a href="logout.php" class="flex-c-m trans-04 p-lr-25">
+							Logout
+						</a>
+
 					</div>
 				</div>
 			</div>
@@ -84,7 +89,7 @@
 							</li>
 
 							<li>
-								<a href="AdminProduct.html">Shop</a>
+								<a href="AdminProduct.php">Shop</a>
 							</li>
 
 							<li>
@@ -166,6 +171,10 @@
 							Product Database
 						</a>
 
+						<a href="logout.php" class="flex-c-m trans-04 p-lr-25">
+							Logout
+						</a>
+
 						<!-- ID of the user should appear here-->
 					</div>
 				</li>
@@ -177,7 +186,7 @@
 				</li>
 
 				<li>
-                    <a href="AdminProduct.html">Shop</a>
+                    <a href="AdminProduct.php">Shop</a>
                 </li>
 
                 <li>
