@@ -49,13 +49,14 @@
 							Donate For A Cause
 						</a>
 
-						<a href="UserAccount.html" class="flex-c-m trans-04 p-lr-25">
+						<a href="updateUserInfo.html" class="flex-c-m trans-04 p-lr-25">
 							My Account
 						</a>
 
 						<a href="logout.php" class="flex-c-m trans-04 p-lr-25">
 							Logout
 						</a>
+						<p id="welcomeMsg"></p>
 					</div>
 				</div>
 			</div>
@@ -920,6 +921,7 @@
     <script>
         $(function(){
             loadContent();
+			checkCookie();
         });
 
 		function setCookie(inputName,inputEmail,UserType) {
