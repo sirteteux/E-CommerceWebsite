@@ -47,13 +47,15 @@
 							Donate For A Cause
 						</a>
 
-						<a href="login.html" class="flex-c-m trans-04 p-lr-25">
-							Login
+						<a href="updateUserInfo.html" class="flex-c-m trans-04 p-lr-25">
+							My Account
 						</a>
 
-						<a href="register.html" class="flex-c-m trans-04 p-lr-25">
-							Register
+						<a href="logout.php" class="flex-c-m trans-04 p-lr-25">
+							Logout
 						</a>
+
+						<p id="welcomeMsg"></p>
 					</div>
 				</div>
 			</div>
@@ -70,23 +72,23 @@
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li>
-								<a href="index.html">Home</a>
+								<a href="UserHome.html">Home</a>
 							</li>
 
 							<li>
-								<a href="product.php">Shop</a>
+								<a href="UserProduct.php">Shop</a>
 							</li>
 
 							<li>
-								<a href="blog.html">Blog</a>
+								<a href="UserBlog.html">Blog</a>
 							</li>
 
 							<li>
-								<a href="about.html">About</a>
+								<a href="UserAbout.html">About</a>
 							</li>
 
-							<li class="active-menu">
-								<a href="contact.php">Contact</a>
+							<li>
+								<a href="UserContact.php">Contact</a>
 							</li>
 						</ul>
 					</div>	
@@ -135,7 +137,7 @@
 
 				<li>
 					<div class="right-top-bar flex-w h-full">
-						<a href="guide.pdf" class="flex-c-m p-lr-10 trans-04" download>
+						<a href="../guide.pdf" class="flex-c-m p-lr-10 trans-04" download>
 							Help & FAQs
 						</a>
 
@@ -143,36 +145,34 @@
 							Donate For A Cause
 						</a>
 
-						<a href="login.html" class="flex-c-m p-lr-10 trans-04">
-							Login
+						<a href="UserAccount.html" class="flex-c-m trans-04 p-lr-25">
+							My Account
 						</a>
 
-						<a href="register.html" class="flex-c-m trans-04 p-lr-25">
-							Register
-						</a>
+						<p id="welcomeMsg"></p>
 					</div>
 				</li>
 			</ul>
 
 			<ul class="main-menu-m">
 				<li>
-					<a href="index.html">Home</a>
+					<a href="UserHome.html">Home</a>
 				</li>
 
 				<li>
-					<a href="product.php">Shop</a>
+					<a href="UserProduct.php">Shop</a>
 				</li>
 
 				<li>
-					<a href="blog.html">Blog</a>
+					<a href="UserBlog.html">Blog</a>
 				</li>
 
 				<li>
-					<a href="about.html">About</a>
+					<a href="UserAbout.html">About</a>
 				</li>
 
 				<li>
-					<a href="contact.php">Contact</a>
+					<a href="UserContact.php">Contact</a>
 				</li>
 			</ul>
 		</div>
@@ -206,15 +206,15 @@
 							<br/>
 						</div>
 						<div class="bor8 m-b-20 how-pos4-parent">
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" name="password" placeholder="Password" id="pwd">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" name="password" placeholder="Password" id="password">
 							<br/>
-                        </div>
-                        <div class="bor8 m-b-20 how-pos4-parent">
+                        			</div>
+                        			<div class="bor8 m-b-20 how-pos4-parent">
 							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="number" name="contact" placeholder="Contact Number" id="contact">
 							<br/>
-                        </div>
-                        <div class="bor8 m-b-20 how-pos4-parent">
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="number" name="ccDetails" placeholder="Credit Card Number" id="ccDetails">
+                        			</div>
+                        			<div class="bor8 m-b-20 how-pos4-parent">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="number" name="ccdetails" placeholder="Credit Card Number" id="CCDetails">
 							<br/>
 						</div>
 						<p id="error"></p>
@@ -222,7 +222,7 @@
 					</form>
 					<script>
 					$(function(){
-                        checkCookie();
+                        		checkCookie();
 					})
 
 					function validateSession(){
@@ -245,23 +245,25 @@
 					}
 					function validateSave() {
 						var email = document.forms["accountForm"]["email"].value;
+						var contact = document.forms["accountForm"]["contact"].value;
 						var password = document.forms["accountForm"]["password"].value;
                         var ccDetails = document.forms["accountForm"]["ccDetails"].value;
 
-                        // if (email.trim() == "" || password.trim() == "" || ccDetails.trim() == "") {
+                        			// if (email.trim() == "" || password.trim() == "" || ccDetails.trim() == "") {
 						// 	alert("Make sure to update at least 1 information");
-                        //     return false;
-                        // }
+                        			//     return false;
+                        		// }
 						$("#form").submit(function(e) {
-                        e.preventDefault();
-                    	});
+                        			e.preventDefault();
+                    				});
 					}
 
 					function saveFunc(){
                         var name = document.forms["accountForm"]["name"].value;
 						var email = document.forms["accountForm"]["email"].value;
 						var password = document.forms["accountForm"]["password"].value;
-                        var ccDetails = document.forms["accountForm"]["ccDetails"].value;
+						var contact = document.forms["accountForm"]["contact"].value;
+                        var ccDetails = document.forms["accountForm"]["CCDetails"].value;
 						var resp = "";
 						var xmlhttp=new XMLHttpRequest();
 						xmlhttp.onreadystatechange=function() {
@@ -279,14 +281,14 @@
 						
 						xmlhttp.open("POST", "updateInfo.php", true);
 						xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-						xmlhttp.send("email=" + email + "&pwd=" + password + "&name=" + name + "&cc=" + ccDetails);
+						xmlhttp.send("email=" + email + "&pwd=" + password + "&name=" + name + "&contact=" + contact + "&cc=" + ccDetails);
 					}
 
-					function setCookie(inputName,inputEmail,UserType, exdays) {
+					function setCookie(inputName,inputEmail,inputPassword,inputContact,inputCCDetails,exdays) {
 						var d = new Date();
 						
 						var cdomain = "ceto.murdoch.edu.au/~34110222/assignment2/assignment2";
-						var cvalue = JSON.stringify({userName:inputName,userEmail:inputEmail,userType:UserType,domain:cdomain});
+						var cvalue = JSON.stringify({userName:inputName,userEmail:inputEmail,userPassword:inputPassword,userContact:inputContact.toString(),userCCDetails:inputCCDetails,domain:cdomain});
 						d.setTime(d.getTime() + (exdays*24*60*60*1000));
 						var expires = "expires=" + d.toGMTString();
 						//console.log("setting cookies");
@@ -316,8 +318,27 @@
 						var userDetails= getCookie("userDetails");
 						var domain=getCookie("domain");
 						if (userDetails != "") {
-                            document.getElementById("name").value = userDetails.userName;
-							console.log(userDetails.userName);
+							var xmlhttp=new XMLHttpRequest();
+							xmlhttp.onreadystatechange=function() {
+								if (this.readyState==4 && this.status==200) {
+									resp = JSON.parse(this.responseText);
+									if(resp.name != null){
+										console.log(resp);
+										document.getElementById("email").value = resp.email;
+										document.getElementById("name").value = resp.name;
+										document.getElementById("contact").value = resp.contact;
+										document.getElementById("CCDetails").value = resp.cc;
+									}
+									else{
+										document.getElementById("error").innerHTML = resp.error;
+										document.getElementById("error").style.color="red";
+									}
+								}
+							}
+							
+							xmlhttp.open("POST", "retrieveUserDetails.php", true);
+							xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+							xmlhttp.send("email=" + userDetails.userEmail);
 						} 
 						else{
 							return false;
